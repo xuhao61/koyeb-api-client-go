@@ -19,6 +19,9 @@ type DeploymentScalingTarget struct {
 	AverageCpu *DeploymentScalingTargetAverageCPU `json:"average_cpu,omitempty"`
 	AverageMem *DeploymentScalingTargetAverageMem `json:"average_mem,omitempty"`
 	RequestsPerSecond *DeploymentScalingTargetRequestsPerSecond `json:"requests_per_second,omitempty"`
+	ConcurrentRequests *DeploymentScalingTargetConcurrentRequests `json:"concurrent_requests,omitempty"`
+	RequestsResponseTime *DeploymentScalingTargetRequestsResponseTime `json:"requests_response_time,omitempty"`
+	SleepIdleDelay *DeploymentScalingTargetSleepIdleDelay `json:"sleep_idle_delay,omitempty"`
 }
 
 // NewDeploymentScalingTarget instantiates a new DeploymentScalingTarget object
@@ -134,6 +137,102 @@ func (o *DeploymentScalingTarget) SetRequestsPerSecond(v DeploymentScalingTarget
 	o.RequestsPerSecond = &v
 }
 
+// GetConcurrentRequests returns the ConcurrentRequests field value if set, zero value otherwise.
+func (o *DeploymentScalingTarget) GetConcurrentRequests() DeploymentScalingTargetConcurrentRequests {
+	if o == nil || isNil(o.ConcurrentRequests) {
+		var ret DeploymentScalingTargetConcurrentRequests
+		return ret
+	}
+	return *o.ConcurrentRequests
+}
+
+// GetConcurrentRequestsOk returns a tuple with the ConcurrentRequests field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentScalingTarget) GetConcurrentRequestsOk() (*DeploymentScalingTargetConcurrentRequests, bool) {
+	if o == nil || isNil(o.ConcurrentRequests) {
+    return nil, false
+	}
+	return o.ConcurrentRequests, true
+}
+
+// HasConcurrentRequests returns a boolean if a field has been set.
+func (o *DeploymentScalingTarget) HasConcurrentRequests() bool {
+	if o != nil && !isNil(o.ConcurrentRequests) {
+		return true
+	}
+
+	return false
+}
+
+// SetConcurrentRequests gets a reference to the given DeploymentScalingTargetConcurrentRequests and assigns it to the ConcurrentRequests field.
+func (o *DeploymentScalingTarget) SetConcurrentRequests(v DeploymentScalingTargetConcurrentRequests) {
+	o.ConcurrentRequests = &v
+}
+
+// GetRequestsResponseTime returns the RequestsResponseTime field value if set, zero value otherwise.
+func (o *DeploymentScalingTarget) GetRequestsResponseTime() DeploymentScalingTargetRequestsResponseTime {
+	if o == nil || isNil(o.RequestsResponseTime) {
+		var ret DeploymentScalingTargetRequestsResponseTime
+		return ret
+	}
+	return *o.RequestsResponseTime
+}
+
+// GetRequestsResponseTimeOk returns a tuple with the RequestsResponseTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentScalingTarget) GetRequestsResponseTimeOk() (*DeploymentScalingTargetRequestsResponseTime, bool) {
+	if o == nil || isNil(o.RequestsResponseTime) {
+    return nil, false
+	}
+	return o.RequestsResponseTime, true
+}
+
+// HasRequestsResponseTime returns a boolean if a field has been set.
+func (o *DeploymentScalingTarget) HasRequestsResponseTime() bool {
+	if o != nil && !isNil(o.RequestsResponseTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestsResponseTime gets a reference to the given DeploymentScalingTargetRequestsResponseTime and assigns it to the RequestsResponseTime field.
+func (o *DeploymentScalingTarget) SetRequestsResponseTime(v DeploymentScalingTargetRequestsResponseTime) {
+	o.RequestsResponseTime = &v
+}
+
+// GetSleepIdleDelay returns the SleepIdleDelay field value if set, zero value otherwise.
+func (o *DeploymentScalingTarget) GetSleepIdleDelay() DeploymentScalingTargetSleepIdleDelay {
+	if o == nil || isNil(o.SleepIdleDelay) {
+		var ret DeploymentScalingTargetSleepIdleDelay
+		return ret
+	}
+	return *o.SleepIdleDelay
+}
+
+// GetSleepIdleDelayOk returns a tuple with the SleepIdleDelay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentScalingTarget) GetSleepIdleDelayOk() (*DeploymentScalingTargetSleepIdleDelay, bool) {
+	if o == nil || isNil(o.SleepIdleDelay) {
+    return nil, false
+	}
+	return o.SleepIdleDelay, true
+}
+
+// HasSleepIdleDelay returns a boolean if a field has been set.
+func (o *DeploymentScalingTarget) HasSleepIdleDelay() bool {
+	if o != nil && !isNil(o.SleepIdleDelay) {
+		return true
+	}
+
+	return false
+}
+
+// SetSleepIdleDelay gets a reference to the given DeploymentScalingTargetSleepIdleDelay and assigns it to the SleepIdleDelay field.
+func (o *DeploymentScalingTarget) SetSleepIdleDelay(v DeploymentScalingTargetSleepIdleDelay) {
+	o.SleepIdleDelay = &v
+}
+
 func (o DeploymentScalingTarget) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.AverageCpu) {
@@ -144,6 +243,15 @@ func (o DeploymentScalingTarget) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.RequestsPerSecond) {
 		toSerialize["requests_per_second"] = o.RequestsPerSecond
+	}
+	if !isNil(o.ConcurrentRequests) {
+		toSerialize["concurrent_requests"] = o.ConcurrentRequests
+	}
+	if !isNil(o.RequestsResponseTime) {
+		toSerialize["requests_response_time"] = o.RequestsResponseTime
+	}
+	if !isNil(o.SleepIdleDelay) {
+		toSerialize["sleep_idle_delay"] = o.SleepIdleDelay
 	}
 	return json.Marshal(toSerialize)
 }

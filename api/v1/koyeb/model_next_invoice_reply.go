@@ -17,6 +17,8 @@ import (
 // NextInvoiceReply struct for NextInvoiceReply
 type NextInvoiceReply struct {
 	StripeInvoice map[string]interface{} `json:"stripe_invoice,omitempty"`
+	Lines []NextInvoiceReplyLine `json:"lines,omitempty"`
+	Discounts []NextInvoiceReplyDiscount `json:"discounts,omitempty"`
 }
 
 // NewNextInvoiceReply instantiates a new NextInvoiceReply object
@@ -68,10 +70,80 @@ func (o *NextInvoiceReply) SetStripeInvoice(v map[string]interface{}) {
 	o.StripeInvoice = v
 }
 
+// GetLines returns the Lines field value if set, zero value otherwise.
+func (o *NextInvoiceReply) GetLines() []NextInvoiceReplyLine {
+	if o == nil || isNil(o.Lines) {
+		var ret []NextInvoiceReplyLine
+		return ret
+	}
+	return o.Lines
+}
+
+// GetLinesOk returns a tuple with the Lines field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NextInvoiceReply) GetLinesOk() ([]NextInvoiceReplyLine, bool) {
+	if o == nil || isNil(o.Lines) {
+    return nil, false
+	}
+	return o.Lines, true
+}
+
+// HasLines returns a boolean if a field has been set.
+func (o *NextInvoiceReply) HasLines() bool {
+	if o != nil && !isNil(o.Lines) {
+		return true
+	}
+
+	return false
+}
+
+// SetLines gets a reference to the given []NextInvoiceReplyLine and assigns it to the Lines field.
+func (o *NextInvoiceReply) SetLines(v []NextInvoiceReplyLine) {
+	o.Lines = v
+}
+
+// GetDiscounts returns the Discounts field value if set, zero value otherwise.
+func (o *NextInvoiceReply) GetDiscounts() []NextInvoiceReplyDiscount {
+	if o == nil || isNil(o.Discounts) {
+		var ret []NextInvoiceReplyDiscount
+		return ret
+	}
+	return o.Discounts
+}
+
+// GetDiscountsOk returns a tuple with the Discounts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NextInvoiceReply) GetDiscountsOk() ([]NextInvoiceReplyDiscount, bool) {
+	if o == nil || isNil(o.Discounts) {
+    return nil, false
+	}
+	return o.Discounts, true
+}
+
+// HasDiscounts returns a boolean if a field has been set.
+func (o *NextInvoiceReply) HasDiscounts() bool {
+	if o != nil && !isNil(o.Discounts) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscounts gets a reference to the given []NextInvoiceReplyDiscount and assigns it to the Discounts field.
+func (o *NextInvoiceReply) SetDiscounts(v []NextInvoiceReplyDiscount) {
+	o.Discounts = v
+}
+
 func (o NextInvoiceReply) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.StripeInvoice) {
 		toSerialize["stripe_invoice"] = o.StripeInvoice
+	}
+	if !isNil(o.Lines) {
+		toSerialize["lines"] = o.Lines
+	}
+	if !isNil(o.Discounts) {
+		toSerialize["discounts"] = o.Discounts
 	}
 	return json.Marshal(toSerialize)
 }

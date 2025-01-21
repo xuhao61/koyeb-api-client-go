@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**RegionalDeploymentDefinitionType**](RegionalDeploymentDefinitionType.md) |  | [optional] [default to REGIONALDEPLOYMENTDEFINITIONTYPE_INVALID]
+**Strategy** | Pointer to [**DeploymentStrategy**](DeploymentStrategy.md) |  | [optional] 
 **Routes** | Pointer to [**[]Route**](Route.md) |  | [optional] 
 **Ports** | Pointer to [**[]Port**](Port.md) |  | [optional] 
 **Env** | Pointer to [**[]Env**](Env.md) |  | [optional] 
@@ -14,10 +15,12 @@ Name | Type | Description | Notes
 **InstanceType** | Pointer to **string** |  | [optional] 
 **DeploymentGroup** | Pointer to **string** |  | [optional] 
 **HealthChecks** | Pointer to [**[]DeploymentHealthCheck**](DeploymentHealthCheck.md) |  | [optional] 
+**Volumes** | Pointer to [**[]RegionalDeploymentVolume**](RegionalDeploymentVolume.md) |  | [optional] 
+**ConfigFiles** | Pointer to [**[]ConfigFile**](ConfigFile.md) |  | [optional] 
 **SkipCache** | Pointer to **bool** |  | [optional] 
-**UseKumaV2** | Pointer to **bool** |  | [optional] 
 **Docker** | Pointer to [**DockerSource**](DockerSource.md) |  | [optional] 
 **Git** | Pointer to [**GitSource**](GitSource.md) |  | [optional] 
+**Archive** | Pointer to [**ArchiveSource**](ArchiveSource.md) |  | [optional] 
 
 ## Methods
 
@@ -87,6 +90,31 @@ SetType sets Type field to given value.
 `func (o *RegionalDeploymentDefinition) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetStrategy
+
+`func (o *RegionalDeploymentDefinition) GetStrategy() DeploymentStrategy`
+
+GetStrategy returns the Strategy field if non-nil, zero value otherwise.
+
+### GetStrategyOk
+
+`func (o *RegionalDeploymentDefinition) GetStrategyOk() (*DeploymentStrategy, bool)`
+
+GetStrategyOk returns a tuple with the Strategy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStrategy
+
+`func (o *RegionalDeploymentDefinition) SetStrategy(v DeploymentStrategy)`
+
+SetStrategy sets Strategy field to given value.
+
+### HasStrategy
+
+`func (o *RegionalDeploymentDefinition) HasStrategy() bool`
+
+HasStrategy returns a boolean if a field has been set.
 
 ### GetRoutes
 
@@ -288,6 +316,56 @@ SetHealthChecks sets HealthChecks field to given value.
 
 HasHealthChecks returns a boolean if a field has been set.
 
+### GetVolumes
+
+`func (o *RegionalDeploymentDefinition) GetVolumes() []RegionalDeploymentVolume`
+
+GetVolumes returns the Volumes field if non-nil, zero value otherwise.
+
+### GetVolumesOk
+
+`func (o *RegionalDeploymentDefinition) GetVolumesOk() (*[]RegionalDeploymentVolume, bool)`
+
+GetVolumesOk returns a tuple with the Volumes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumes
+
+`func (o *RegionalDeploymentDefinition) SetVolumes(v []RegionalDeploymentVolume)`
+
+SetVolumes sets Volumes field to given value.
+
+### HasVolumes
+
+`func (o *RegionalDeploymentDefinition) HasVolumes() bool`
+
+HasVolumes returns a boolean if a field has been set.
+
+### GetConfigFiles
+
+`func (o *RegionalDeploymentDefinition) GetConfigFiles() []ConfigFile`
+
+GetConfigFiles returns the ConfigFiles field if non-nil, zero value otherwise.
+
+### GetConfigFilesOk
+
+`func (o *RegionalDeploymentDefinition) GetConfigFilesOk() (*[]ConfigFile, bool)`
+
+GetConfigFilesOk returns a tuple with the ConfigFiles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigFiles
+
+`func (o *RegionalDeploymentDefinition) SetConfigFiles(v []ConfigFile)`
+
+SetConfigFiles sets ConfigFiles field to given value.
+
+### HasConfigFiles
+
+`func (o *RegionalDeploymentDefinition) HasConfigFiles() bool`
+
+HasConfigFiles returns a boolean if a field has been set.
+
 ### GetSkipCache
 
 `func (o *RegionalDeploymentDefinition) GetSkipCache() bool`
@@ -312,31 +390,6 @@ SetSkipCache sets SkipCache field to given value.
 `func (o *RegionalDeploymentDefinition) HasSkipCache() bool`
 
 HasSkipCache returns a boolean if a field has been set.
-
-### GetUseKumaV2
-
-`func (o *RegionalDeploymentDefinition) GetUseKumaV2() bool`
-
-GetUseKumaV2 returns the UseKumaV2 field if non-nil, zero value otherwise.
-
-### GetUseKumaV2Ok
-
-`func (o *RegionalDeploymentDefinition) GetUseKumaV2Ok() (*bool, bool)`
-
-GetUseKumaV2Ok returns a tuple with the UseKumaV2 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUseKumaV2
-
-`func (o *RegionalDeploymentDefinition) SetUseKumaV2(v bool)`
-
-SetUseKumaV2 sets UseKumaV2 field to given value.
-
-### HasUseKumaV2
-
-`func (o *RegionalDeploymentDefinition) HasUseKumaV2() bool`
-
-HasUseKumaV2 returns a boolean if a field has been set.
 
 ### GetDocker
 
@@ -387,6 +440,31 @@ SetGit sets Git field to given value.
 `func (o *RegionalDeploymentDefinition) HasGit() bool`
 
 HasGit returns a boolean if a field has been set.
+
+### GetArchive
+
+`func (o *RegionalDeploymentDefinition) GetArchive() ArchiveSource`
+
+GetArchive returns the Archive field if non-nil, zero value otherwise.
+
+### GetArchiveOk
+
+`func (o *RegionalDeploymentDefinition) GetArchiveOk() (*ArchiveSource, bool)`
+
+GetArchiveOk returns a tuple with the Archive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArchive
+
+`func (o *RegionalDeploymentDefinition) SetArchive(v ArchiveSource)`
+
+SetArchive sets Archive field to given value.
+
+### HasArchive
+
+`func (o *RegionalDeploymentDefinition) HasArchive() bool`
+
+HasArchive returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
