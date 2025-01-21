@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
+**ScheduledAt** | Pointer to **time.Time** |  | [optional] 
 **AllocatedAt** | Pointer to **time.Time** |  | [optional] 
 **StartedAt** | Pointer to **time.Time** |  | [optional] 
 **SucceededAt** | Pointer to **time.Time** |  | [optional] 
@@ -21,8 +22,9 @@ Name | Type | Description | Notes
 **Messages** | Pointer to **[]string** |  | [optional] 
 **Definition** | Pointer to [**RegionalDeploymentDefinition**](RegionalDeploymentDefinition.md) |  | [optional] 
 **Datacenters** | Pointer to **[]string** |  | [optional] 
-**Metadata** | Pointer to [**RegionalDeploymentMetadata**](RegionalDeploymentMetadata.md) |  | [optional] 
+**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 **ProvisioningInfo** | Pointer to [**DeploymentProvisioningInfo**](DeploymentProvisioningInfo.md) |  | [optional] 
+**Role** | Pointer to [**RegionalDeploymentRole**](RegionalDeploymentRole.md) |  | [optional] [default to REGIONALDEPLOYMENTROLE_INVALID]
 **Version** | Pointer to **string** |  | [optional] 
 **DeploymentGroup** | Pointer to **string** |  | [optional] 
 **DeploymentId** | Pointer to **string** |  | [optional] 
@@ -120,6 +122,31 @@ SetUpdatedAt sets UpdatedAt field to given value.
 `func (o *RegionalDeployment) HasUpdatedAt() bool`
 
 HasUpdatedAt returns a boolean if a field has been set.
+
+### GetScheduledAt
+
+`func (o *RegionalDeployment) GetScheduledAt() time.Time`
+
+GetScheduledAt returns the ScheduledAt field if non-nil, zero value otherwise.
+
+### GetScheduledAtOk
+
+`func (o *RegionalDeployment) GetScheduledAtOk() (*time.Time, bool)`
+
+GetScheduledAtOk returns a tuple with the ScheduledAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledAt
+
+`func (o *RegionalDeployment) SetScheduledAt(v time.Time)`
+
+SetScheduledAt sets ScheduledAt field to given value.
+
+### HasScheduledAt
+
+`func (o *RegionalDeployment) HasScheduledAt() bool`
+
+HasScheduledAt returns a boolean if a field has been set.
 
 ### GetAllocatedAt
 
@@ -473,20 +500,20 @@ HasDatacenters returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *RegionalDeployment) GetMetadata() RegionalDeploymentMetadata`
+`func (o *RegionalDeployment) GetMetadata() map[string]interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *RegionalDeployment) GetMetadataOk() (*RegionalDeploymentMetadata, bool)`
+`func (o *RegionalDeployment) GetMetadataOk() (*map[string]interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *RegionalDeployment) SetMetadata(v RegionalDeploymentMetadata)`
+`func (o *RegionalDeployment) SetMetadata(v map[string]interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -520,6 +547,31 @@ SetProvisioningInfo sets ProvisioningInfo field to given value.
 `func (o *RegionalDeployment) HasProvisioningInfo() bool`
 
 HasProvisioningInfo returns a boolean if a field has been set.
+
+### GetRole
+
+`func (o *RegionalDeployment) GetRole() RegionalDeploymentRole`
+
+GetRole returns the Role field if non-nil, zero value otherwise.
+
+### GetRoleOk
+
+`func (o *RegionalDeployment) GetRoleOk() (*RegionalDeploymentRole, bool)`
+
+GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRole
+
+`func (o *RegionalDeployment) SetRole(v RegionalDeploymentRole)`
+
+SetRole sets Role field to given value.
+
+### HasRole
+
+`func (o *RegionalDeployment) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
 
 ### GetVersion
 

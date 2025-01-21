@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Activities** | Pointer to [**[]Activity**](Activity.md) |  | [optional] 
 **Limit** | Pointer to **int64** |  | [optional] 
 **Offset** | Pointer to **int64** |  | [optional] 
-**Count** | Pointer to **int64** |  | [optional] 
+**HasNext** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -103,30 +103,30 @@ SetOffset sets Offset field to given value.
 
 HasOffset returns a boolean if a field has been set.
 
-### GetCount
+### GetHasNext
 
-`func (o *ActivityList) GetCount() int64`
+`func (o *ActivityList) GetHasNext() bool`
 
-GetCount returns the Count field if non-nil, zero value otherwise.
+GetHasNext returns the HasNext field if non-nil, zero value otherwise.
 
-### GetCountOk
+### GetHasNextOk
 
-`func (o *ActivityList) GetCountOk() (*int64, bool)`
+`func (o *ActivityList) GetHasNextOk() (*bool, bool)`
 
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+GetHasNextOk returns a tuple with the HasNext field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCount
+### SetHasNext
 
-`func (o *ActivityList) SetCount(v int64)`
+`func (o *ActivityList) SetHasNext(v bool)`
 
-SetCount sets Count field to given value.
+SetHasNext sets HasNext field to given value.
 
-### HasCount
+### HasHasNext
 
-`func (o *ActivityList) HasCount() bool`
+`func (o *ActivityList) HasHasNext() bool`
 
-HasCount returns a boolean if a field has been set.
+HasHasNext returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

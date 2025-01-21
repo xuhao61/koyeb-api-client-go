@@ -18,6 +18,7 @@ import (
 	"net/url"
 	"strings"
 	"reflect"
+	"time"
 )
 
 
@@ -317,6 +318,17 @@ func (a *InstancesApiService) ExecCommandExecute(r ApiExecCommandRequest) (*Stre
             		newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 			var v GoogleRpcStatus
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -485,6 +497,17 @@ func (a *InstancesApiService) GetInstanceExecute(r ApiGetInstanceRequest) (*GetI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -735,6 +758,17 @@ func (a *InstancesApiService) ListInstanceEventsExecute(r ApiListInstanceEventsR
             		newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 			var v GoogleRpcStatus
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -766,10 +800,13 @@ type ApiListInstancesRequest struct {
 	deploymentId *string
 	regionalDeploymentId *string
 	allocationId *string
+	replicaIndex *string
 	statuses *[]string
 	limit *string
 	offset *string
 	order *string
+	startingTime *time.Time
+	endingTime *time.Time
 }
 
 // (Optional) Filter on application id
@@ -802,6 +839,12 @@ func (r ApiListInstancesRequest) AllocationId(allocationId string) ApiListInstan
 	return r
 }
 
+// (Optional) Filter on replica index
+func (r ApiListInstancesRequest) ReplicaIndex(replicaIndex string) ApiListInstancesRequest {
+	r.replicaIndex = &replicaIndex
+	return r
+}
+
 // (Optional) Filter on instance statuses
 func (r ApiListInstancesRequest) Statuses(statuses []string) ApiListInstancesRequest {
 	r.statuses = &statuses
@@ -823,6 +866,18 @@ func (r ApiListInstancesRequest) Offset(offset string) ApiListInstancesRequest {
 // (Optional) Sorts the list in the ascending or the descending order
 func (r ApiListInstancesRequest) Order(order string) ApiListInstancesRequest {
 	r.order = &order
+	return r
+}
+
+// (Optional) The starting time of the period of running instance
+func (r ApiListInstancesRequest) StartingTime(startingTime time.Time) ApiListInstancesRequest {
+	r.startingTime = &startingTime
+	return r
+}
+
+// (Optional) The ending time of the period of running instance
+func (r ApiListInstancesRequest) EndingTime(endingTime time.Time) ApiListInstancesRequest {
+	r.endingTime = &endingTime
 	return r
 }
 
@@ -879,6 +934,9 @@ func (a *InstancesApiService) ListInstancesExecute(r ApiListInstancesRequest) (*
 	if r.allocationId != nil {
 		localVarQueryParams.Add("allocation_id", parameterToString(*r.allocationId, ""))
 	}
+	if r.replicaIndex != nil {
+		localVarQueryParams.Add("replica_index", parameterToString(*r.replicaIndex, ""))
+	}
 	if r.statuses != nil {
 		t := *r.statuses
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
@@ -898,6 +956,12 @@ func (a *InstancesApiService) ListInstancesExecute(r ApiListInstancesRequest) (*
 	}
 	if r.order != nil {
 		localVarQueryParams.Add("order", parameterToString(*r.order, ""))
+	}
+	if r.startingTime != nil {
+		localVarQueryParams.Add("starting_time", parameterToString(*r.startingTime, ""))
+	}
+	if r.endingTime != nil {
+		localVarQueryParams.Add("ending_time", parameterToString(*r.endingTime, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -997,6 +1061,17 @@ func (a *InstancesApiService) ListInstancesExecute(r ApiListInstancesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

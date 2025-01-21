@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StripeInvoice** | Pointer to **map[string]interface{}** |  | [optional] 
+**Lines** | Pointer to [**[]NextInvoiceReplyLine**](NextInvoiceReplyLine.md) |  | [optional] 
+**Discounts** | Pointer to [**[]NextInvoiceReplyDiscount**](NextInvoiceReplyDiscount.md) |  | [optional] 
 
 ## Methods
 
@@ -49,6 +51,56 @@ SetStripeInvoice sets StripeInvoice field to given value.
 `func (o *NextInvoiceReply) HasStripeInvoice() bool`
 
 HasStripeInvoice returns a boolean if a field has been set.
+
+### GetLines
+
+`func (o *NextInvoiceReply) GetLines() []NextInvoiceReplyLine`
+
+GetLines returns the Lines field if non-nil, zero value otherwise.
+
+### GetLinesOk
+
+`func (o *NextInvoiceReply) GetLinesOk() (*[]NextInvoiceReplyLine, bool)`
+
+GetLinesOk returns a tuple with the Lines field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLines
+
+`func (o *NextInvoiceReply) SetLines(v []NextInvoiceReplyLine)`
+
+SetLines sets Lines field to given value.
+
+### HasLines
+
+`func (o *NextInvoiceReply) HasLines() bool`
+
+HasLines returns a boolean if a field has been set.
+
+### GetDiscounts
+
+`func (o *NextInvoiceReply) GetDiscounts() []NextInvoiceReplyDiscount`
+
+GetDiscounts returns the Discounts field if non-nil, zero value otherwise.
+
+### GetDiscountsOk
+
+`func (o *NextInvoiceReply) GetDiscountsOk() (*[]NextInvoiceReplyDiscount, bool)`
+
+GetDiscountsOk returns a tuple with the Discounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiscounts
+
+`func (o *NextInvoiceReply) SetDiscounts(v []NextInvoiceReplyDiscount)`
+
+SetDiscounts sets Discounts field to given value.
+
+### HasDiscounts
+
+`func (o *NextInvoiceReply) HasDiscounts() bool`
+
+HasDiscounts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

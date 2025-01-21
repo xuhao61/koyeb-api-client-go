@@ -22,6 +22,12 @@ type DeploymentProvisioningInfoStageBuildAttempt struct {
 	Messages []string `json:"messages,omitempty"`
 	StartedAt *time.Time `json:"started_at,omitempty"`
 	FinishedAt *time.Time `json:"finished_at,omitempty"`
+	Steps []DeploymentProvisioningInfoStageBuildAttemptBuildStep `json:"steps,omitempty"`
+	ImagePushed *bool `json:"image_pushed,omitempty"`
+	InternalFailure *bool `json:"internal_failure,omitempty"`
+	RetryableFailure *bool `json:"retryable_failure,omitempty"`
+	// This flag is used to finalize the build, and continue the deployment in case of success, or cancel and potentially retry the build in case of failure.
+	WaitCompletion *bool `json:"wait_completion,omitempty"`
 }
 
 // NewDeploymentProvisioningInfoStageBuildAttempt instantiates a new DeploymentProvisioningInfoStageBuildAttempt object
@@ -205,6 +211,166 @@ func (o *DeploymentProvisioningInfoStageBuildAttempt) SetFinishedAt(v time.Time)
 	o.FinishedAt = &v
 }
 
+// GetSteps returns the Steps field value if set, zero value otherwise.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetSteps() []DeploymentProvisioningInfoStageBuildAttemptBuildStep {
+	if o == nil || isNil(o.Steps) {
+		var ret []DeploymentProvisioningInfoStageBuildAttemptBuildStep
+		return ret
+	}
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetStepsOk() ([]DeploymentProvisioningInfoStageBuildAttemptBuildStep, bool) {
+	if o == nil || isNil(o.Steps) {
+    return nil, false
+	}
+	return o.Steps, true
+}
+
+// HasSteps returns a boolean if a field has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) HasSteps() bool {
+	if o != nil && !isNil(o.Steps) {
+		return true
+	}
+
+	return false
+}
+
+// SetSteps gets a reference to the given []DeploymentProvisioningInfoStageBuildAttemptBuildStep and assigns it to the Steps field.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) SetSteps(v []DeploymentProvisioningInfoStageBuildAttemptBuildStep) {
+	o.Steps = v
+}
+
+// GetImagePushed returns the ImagePushed field value if set, zero value otherwise.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetImagePushed() bool {
+	if o == nil || isNil(o.ImagePushed) {
+		var ret bool
+		return ret
+	}
+	return *o.ImagePushed
+}
+
+// GetImagePushedOk returns a tuple with the ImagePushed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetImagePushedOk() (*bool, bool) {
+	if o == nil || isNil(o.ImagePushed) {
+    return nil, false
+	}
+	return o.ImagePushed, true
+}
+
+// HasImagePushed returns a boolean if a field has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) HasImagePushed() bool {
+	if o != nil && !isNil(o.ImagePushed) {
+		return true
+	}
+
+	return false
+}
+
+// SetImagePushed gets a reference to the given bool and assigns it to the ImagePushed field.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) SetImagePushed(v bool) {
+	o.ImagePushed = &v
+}
+
+// GetInternalFailure returns the InternalFailure field value if set, zero value otherwise.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetInternalFailure() bool {
+	if o == nil || isNil(o.InternalFailure) {
+		var ret bool
+		return ret
+	}
+	return *o.InternalFailure
+}
+
+// GetInternalFailureOk returns a tuple with the InternalFailure field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetInternalFailureOk() (*bool, bool) {
+	if o == nil || isNil(o.InternalFailure) {
+    return nil, false
+	}
+	return o.InternalFailure, true
+}
+
+// HasInternalFailure returns a boolean if a field has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) HasInternalFailure() bool {
+	if o != nil && !isNil(o.InternalFailure) {
+		return true
+	}
+
+	return false
+}
+
+// SetInternalFailure gets a reference to the given bool and assigns it to the InternalFailure field.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) SetInternalFailure(v bool) {
+	o.InternalFailure = &v
+}
+
+// GetRetryableFailure returns the RetryableFailure field value if set, zero value otherwise.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetRetryableFailure() bool {
+	if o == nil || isNil(o.RetryableFailure) {
+		var ret bool
+		return ret
+	}
+	return *o.RetryableFailure
+}
+
+// GetRetryableFailureOk returns a tuple with the RetryableFailure field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetRetryableFailureOk() (*bool, bool) {
+	if o == nil || isNil(o.RetryableFailure) {
+    return nil, false
+	}
+	return o.RetryableFailure, true
+}
+
+// HasRetryableFailure returns a boolean if a field has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) HasRetryableFailure() bool {
+	if o != nil && !isNil(o.RetryableFailure) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetryableFailure gets a reference to the given bool and assigns it to the RetryableFailure field.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) SetRetryableFailure(v bool) {
+	o.RetryableFailure = &v
+}
+
+// GetWaitCompletion returns the WaitCompletion field value if set, zero value otherwise.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetWaitCompletion() bool {
+	if o == nil || isNil(o.WaitCompletion) {
+		var ret bool
+		return ret
+	}
+	return *o.WaitCompletion
+}
+
+// GetWaitCompletionOk returns a tuple with the WaitCompletion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) GetWaitCompletionOk() (*bool, bool) {
+	if o == nil || isNil(o.WaitCompletion) {
+    return nil, false
+	}
+	return o.WaitCompletion, true
+}
+
+// HasWaitCompletion returns a boolean if a field has been set.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) HasWaitCompletion() bool {
+	if o != nil && !isNil(o.WaitCompletion) {
+		return true
+	}
+
+	return false
+}
+
+// SetWaitCompletion gets a reference to the given bool and assigns it to the WaitCompletion field.
+func (o *DeploymentProvisioningInfoStageBuildAttempt) SetWaitCompletion(v bool) {
+	o.WaitCompletion = &v
+}
+
 func (o DeploymentProvisioningInfoStageBuildAttempt) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -221,6 +387,21 @@ func (o DeploymentProvisioningInfoStageBuildAttempt) MarshalJSON() ([]byte, erro
 	}
 	if !isNil(o.FinishedAt) {
 		toSerialize["finished_at"] = o.FinishedAt
+	}
+	if !isNil(o.Steps) {
+		toSerialize["steps"] = o.Steps
+	}
+	if !isNil(o.ImagePushed) {
+		toSerialize["image_pushed"] = o.ImagePushed
+	}
+	if !isNil(o.InternalFailure) {
+		toSerialize["internal_failure"] = o.InternalFailure
+	}
+	if !isNil(o.RetryableFailure) {
+		toSerialize["retryable_failure"] = o.RetryableFailure
+	}
+	if !isNil(o.WaitCompletion) {
+		toSerialize["wait_completion"] = o.WaitCompletion
 	}
 	return json.Marshal(toSerialize)
 }

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Events** | Pointer to [**[]DeploymentEvent**](DeploymentEvent.md) |  | [optional] 
 **Limit** | Pointer to **int64** |  | [optional] 
 **Offset** | Pointer to **int64** |  | [optional] 
-**Count** | Pointer to **int64** |  | [optional] 
 **Order** | Pointer to **string** |  | [optional] 
+**HasNext** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -104,31 +104,6 @@ SetOffset sets Offset field to given value.
 
 HasOffset returns a boolean if a field has been set.
 
-### GetCount
-
-`func (o *ListDeploymentEventsReply) GetCount() int64`
-
-GetCount returns the Count field if non-nil, zero value otherwise.
-
-### GetCountOk
-
-`func (o *ListDeploymentEventsReply) GetCountOk() (*int64, bool)`
-
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCount
-
-`func (o *ListDeploymentEventsReply) SetCount(v int64)`
-
-SetCount sets Count field to given value.
-
-### HasCount
-
-`func (o *ListDeploymentEventsReply) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
-
 ### GetOrder
 
 `func (o *ListDeploymentEventsReply) GetOrder() string`
@@ -153,6 +128,31 @@ SetOrder sets Order field to given value.
 `func (o *ListDeploymentEventsReply) HasOrder() bool`
 
 HasOrder returns a boolean if a field has been set.
+
+### GetHasNext
+
+`func (o *ListDeploymentEventsReply) GetHasNext() bool`
+
+GetHasNext returns the HasNext field if non-nil, zero value otherwise.
+
+### GetHasNextOk
+
+`func (o *ListDeploymentEventsReply) GetHasNextOk() (*bool, bool)`
+
+GetHasNextOk returns a tuple with the HasNext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasNext
+
+`func (o *ListDeploymentEventsReply) SetHasNext(v bool)`
+
+SetHasNext sets HasNext field to given value.
+
+### HasHasNext
+
+`func (o *ListDeploymentEventsReply) HasHasNext() bool`
+
+HasHasNext returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
