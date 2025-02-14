@@ -20,6 +20,7 @@ type RegionalDeployment struct {
 	Id *string `json:"id,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	ScheduledAt *time.Time `json:"scheduled_at,omitempty"`
 	AllocatedAt *time.Time `json:"allocated_at,omitempty"`
 	StartedAt *time.Time `json:"started_at,omitempty"`
 	SucceededAt *time.Time `json:"succeeded_at,omitempty"`
@@ -34,8 +35,9 @@ type RegionalDeployment struct {
 	Messages []string `json:"messages,omitempty"`
 	Definition *RegionalDeploymentDefinition `json:"definition,omitempty"`
 	Datacenters []string `json:"datacenters,omitempty"`
-	Metadata *RegionalDeploymentMetadata `json:"metadata,omitempty"`
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
 	ProvisioningInfo *DeploymentProvisioningInfo `json:"provisioning_info,omitempty"`
+	Role *RegionalDeploymentRole `json:"role,omitempty"`
 	Version *string `json:"version,omitempty"`
 	DeploymentGroup *string `json:"deployment_group,omitempty"`
 	DeploymentId *string `json:"deployment_id,omitempty"`
@@ -49,6 +51,8 @@ func NewRegionalDeployment() *RegionalDeployment {
 	this := RegionalDeployment{}
 	var status RegionalDeploymentStatus = REGIONALDEPLOYMENTSTATUS_PENDING
 	this.Status = &status
+	var role RegionalDeploymentRole = REGIONALDEPLOYMENTROLE_INVALID
+	this.Role = &role
 	return &this
 }
 
@@ -59,6 +63,8 @@ func NewRegionalDeploymentWithDefaults() *RegionalDeployment {
 	this := RegionalDeployment{}
 	var status RegionalDeploymentStatus = REGIONALDEPLOYMENTSTATUS_PENDING
 	this.Status = &status
+	var role RegionalDeploymentRole = REGIONALDEPLOYMENTROLE_INVALID
+	this.Role = &role
 	return &this
 }
 
@@ -156,6 +162,38 @@ func (o *RegionalDeployment) HasUpdatedAt() bool {
 // SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
 func (o *RegionalDeployment) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
+}
+
+// GetScheduledAt returns the ScheduledAt field value if set, zero value otherwise.
+func (o *RegionalDeployment) GetScheduledAt() time.Time {
+	if o == nil || isNil(o.ScheduledAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ScheduledAt
+}
+
+// GetScheduledAtOk returns a tuple with the ScheduledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeployment) GetScheduledAtOk() (*time.Time, bool) {
+	if o == nil || isNil(o.ScheduledAt) {
+    return nil, false
+	}
+	return o.ScheduledAt, true
+}
+
+// HasScheduledAt returns a boolean if a field has been set.
+func (o *RegionalDeployment) HasScheduledAt() bool {
+	if o != nil && !isNil(o.ScheduledAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledAt gets a reference to the given time.Time and assigns it to the ScheduledAt field.
+func (o *RegionalDeployment) SetScheduledAt(v time.Time) {
+	o.ScheduledAt = &v
 }
 
 // GetAllocatedAt returns the AllocatedAt field value if set, zero value otherwise.
@@ -607,19 +645,19 @@ func (o *RegionalDeployment) SetDatacenters(v []string) {
 }
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
-func (o *RegionalDeployment) GetMetadata() RegionalDeploymentMetadata {
+func (o *RegionalDeployment) GetMetadata() map[string]interface{} {
 	if o == nil || isNil(o.Metadata) {
-		var ret RegionalDeploymentMetadata
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Metadata
+	return o.Metadata
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RegionalDeployment) GetMetadataOk() (*RegionalDeploymentMetadata, bool) {
+func (o *RegionalDeployment) GetMetadataOk() (map[string]interface{}, bool) {
 	if o == nil || isNil(o.Metadata) {
-    return nil, false
+    return map[string]interface{}{}, false
 	}
 	return o.Metadata, true
 }
@@ -633,9 +671,9 @@ func (o *RegionalDeployment) HasMetadata() bool {
 	return false
 }
 
-// SetMetadata gets a reference to the given RegionalDeploymentMetadata and assigns it to the Metadata field.
-func (o *RegionalDeployment) SetMetadata(v RegionalDeploymentMetadata) {
-	o.Metadata = &v
+// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
+func (o *RegionalDeployment) SetMetadata(v map[string]interface{}) {
+	o.Metadata = v
 }
 
 // GetProvisioningInfo returns the ProvisioningInfo field value if set, zero value otherwise.
@@ -668,6 +706,38 @@ func (o *RegionalDeployment) HasProvisioningInfo() bool {
 // SetProvisioningInfo gets a reference to the given DeploymentProvisioningInfo and assigns it to the ProvisioningInfo field.
 func (o *RegionalDeployment) SetProvisioningInfo(v DeploymentProvisioningInfo) {
 	o.ProvisioningInfo = &v
+}
+
+// GetRole returns the Role field value if set, zero value otherwise.
+func (o *RegionalDeployment) GetRole() RegionalDeploymentRole {
+	if o == nil || isNil(o.Role) {
+		var ret RegionalDeploymentRole
+		return ret
+	}
+	return *o.Role
+}
+
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeployment) GetRoleOk() (*RegionalDeploymentRole, bool) {
+	if o == nil || isNil(o.Role) {
+    return nil, false
+	}
+	return o.Role, true
+}
+
+// HasRole returns a boolean if a field has been set.
+func (o *RegionalDeployment) HasRole() bool {
+	if o != nil && !isNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given RegionalDeploymentRole and assigns it to the Role field.
+func (o *RegionalDeployment) SetRole(v RegionalDeploymentRole) {
+	o.Role = &v
 }
 
 // GetVersion returns the Version field value if set, zero value otherwise.
@@ -777,6 +847,9 @@ func (o RegionalDeployment) MarshalJSON() ([]byte, error) {
 	if !isNil(o.UpdatedAt) {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
+	if !isNil(o.ScheduledAt) {
+		toSerialize["scheduled_at"] = o.ScheduledAt
+	}
 	if !isNil(o.AllocatedAt) {
 		toSerialize["allocated_at"] = o.AllocatedAt
 	}
@@ -824,6 +897,9 @@ func (o RegionalDeployment) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.ProvisioningInfo) {
 		toSerialize["provisioning_info"] = o.ProvisioningInfo
+	}
+	if !isNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	if !isNil(o.Version) {
 		toSerialize["version"] = o.Version

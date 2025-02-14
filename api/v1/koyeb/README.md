@@ -91,6 +91,8 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**ResumeApp**](docs/AppsApi.md#resumeapp) | **Post** /v1/apps/{id}/resume | Resume App
 *AppsApi* | [**UpdateApp**](docs/AppsApi.md#updateapp) | **Put** /v1/apps/{id} | Update App
 *AppsApi* | [**UpdateApp2**](docs/AppsApi.md#updateapp2) | **Patch** /v1/apps/{id} | Update App
+*ArchivesApi* | [**CreateArchive**](docs/ArchivesApi.md#createarchive) | **Post** /v1/archives | Create a signed URL to upload an archive.
+*BillingApi* | [**HasUnpaidInvoices**](docs/BillingApi.md#hasunpaidinvoices) | **Get** /v1/billing/has_unpaid_invoices | Experimental: Has unpaid invoices
 *BillingApi* | [**Manage**](docs/BillingApi.md#manage) | **Get** /v1/billing/manage | 
 *BillingApi* | [**NextInvoice**](docs/BillingApi.md#nextinvoice) | **Get** /v1/billing/next_invoice | Experimental: Fetch next invoice
 *CatalogDatacentersApi* | [**ListDatacenters**](docs/CatalogDatacentersApi.md#listdatacenters) | **Get** /v1/catalog/datacenters | List datacenters
@@ -108,6 +110,7 @@ Class | Method | HTTP request | Description
 *DeploymentsApi* | [**GetDeployment**](docs/DeploymentsApi.md#getdeployment) | **Get** /v1/deployments/{id} | Get Deployment
 *DeploymentsApi* | [**ListDeploymentEvents**](docs/DeploymentsApi.md#listdeploymentevents) | **Get** /v1/deployment_events | List Deployment events
 *DeploymentsApi* | [**ListDeployments**](docs/DeploymentsApi.md#listdeployments) | **Get** /v1/deployments | List Deployments
+*DockerHelperApi* | [**VerifyDockerImage**](docs/DockerHelperApi.md#verifydockerimage) | **Get** /v1/docker-helper/verify | Verify if a docker image is reachable
 *DomainsApi* | [**CreateDomain**](docs/DomainsApi.md#createdomain) | **Post** /v1/domains | 
 *DomainsApi* | [**DeleteDomain**](docs/DomainsApi.md#deletedomain) | **Delete** /v1/domains/{id} | 
 *DomainsApi* | [**GetDomain**](docs/DomainsApi.md#getdomain) | **Get** /v1/domains/{id} | 
@@ -118,6 +121,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**GetInstance**](docs/InstancesApi.md#getinstance) | **Get** /v1/instances/{id} | Get Instance
 *InstancesApi* | [**ListInstanceEvents**](docs/InstancesApi.md#listinstanceevents) | **Get** /v1/instance_events | List Instance events
 *InstancesApi* | [**ListInstances**](docs/InstancesApi.md#listinstances) | **Get** /v1/instances | List Instances
+*IntercomApi* | [**GetIntercomProfile**](docs/IntercomApi.md#getintercomprofile) | **Get** /v1/intercom/profile | Get intercom profile
 *InviteApi* | [**CreateInvite**](docs/InviteApi.md#createinvite) | **Post** /v1/account/invite | 
 *LogsApi* | [**TailLogs**](docs/LogsApi.md#taillogs) | **Get** /v1/streams/logs/tail | Tails logs
 *MetricsApi* | [**GetMetrics**](docs/MetricsApi.md#getmetrics) | **Get** /v1/streams/metrics | 
@@ -127,9 +131,9 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**GetGithubInstallation**](docs/OrganizationApi.md#getgithubinstallation) | **Get** /v1/github/installation | Fetch github installation configuration
 *OrganizationApi* | [**GetOrganization**](docs/OrganizationApi.md#getorganization) | **Get** /v1/organizations/{id} | Get organization
 *OrganizationApi* | [**GithubInstallation**](docs/OrganizationApi.md#githubinstallation) | **Post** /v1/github/installation | Start github installation
-*OrganizationApi* | [**GithubInstallationCallback**](docs/OrganizationApi.md#githubinstallationcallback) | **Post** /v1/github/installation/callback | Github callback for app installation
 *OrganizationApi* | [**ReactivateOrganization**](docs/OrganizationApi.md#reactivateorganization) | **Post** /v1/organizations/{id}/reactivate | Reactivate an organization
 *OrganizationApi* | [**SwitchOrganization**](docs/OrganizationApi.md#switchorganization) | **Post** /v1/organizations/{id}/switch | Switch organization context
+*OrganizationApi* | [**UnscopeOrganizationToken**](docs/OrganizationApi.md#unscopeorganizationtoken) | **Post** /v1/unscope_organization_token | UnscopeOrganizationToken removes the organization scope from a token. This endpoint is useful when a user wants to remove an organization: by unscoping the token first, the user can then delete the organization without invalidating his token.
 *OrganizationApi* | [**UpdateOrganization**](docs/OrganizationApi.md#updateorganization) | **Put** /v1/organizations/{id} | Update organization
 *OrganizationApi* | [**UpdateOrganization2**](docs/OrganizationApi.md#updateorganization2) | **Patch** /v1/organizations/{id} | Update organization
 *OrganizationApi* | [**UpdateOrganizationPlan**](docs/OrganizationApi.md#updateorganizationplan) | **Post** /v1/organizations/{id}/plan | Update organization plan
@@ -148,6 +152,12 @@ Class | Method | HTTP request | Description
 *PaymentMethodsApi* | [**DeletePaymentMethod**](docs/PaymentMethodsApi.md#deletepaymentmethod) | **Delete** /v1/payment_methods/{id} | Delete payment method
 *PaymentMethodsApi* | [**GetPaymentMethod**](docs/PaymentMethodsApi.md#getpaymentmethod) | **Get** /v1/payment_methods/{id} | Get payment method
 *PaymentMethodsApi* | [**ListPaymentMethods**](docs/PaymentMethodsApi.md#listpaymentmethods) | **Get** /v1/payment_methods | List payment methods
+*PersistentVolumesApi* | [**CreatePersistentVolume**](docs/PersistentVolumesApi.md#createpersistentvolume) | **Post** /v1/volumes | Create a PersistentVolume
+*PersistentVolumesApi* | [**DeletePersistentVolume**](docs/PersistentVolumesApi.md#deletepersistentvolume) | **Delete** /v1/volumes/{id} | Delete a PersistentVolume
+*PersistentVolumesApi* | [**GetPersistentVolume**](docs/PersistentVolumesApi.md#getpersistentvolume) | **Get** /v1/volumes/{id} | Get a PersistentVolume
+*PersistentVolumesApi* | [**ListPersistentVolumeEvents**](docs/PersistentVolumesApi.md#listpersistentvolumeevents) | **Get** /v1/volume_events | List Persistent Volume events
+*PersistentVolumesApi* | [**ListPersistentVolumes**](docs/PersistentVolumesApi.md#listpersistentvolumes) | **Get** /v1/volumes | List all PersistentVolumes
+*PersistentVolumesApi* | [**UpdatePersistentVolume**](docs/PersistentVolumesApi.md#updatepersistentvolume) | **Post** /v1/volumes/{id} | Update a PersistentVolume
 *ProfileApi* | [**AcceptOrganizationInvitation**](docs/ProfileApi.md#acceptorganizationinvitation) | **Post** /v1/account/organization_invitations/{id}/accept | 
 *ProfileApi* | [**DeclineOrganizationInvitation**](docs/ProfileApi.md#declineorganizationinvitation) | **Post** /v1/account/organization_invitations/{id}/decline | 
 *ProfileApi* | [**GetCurrentOrganization**](docs/ProfileApi.md#getcurrentorganization) | **Get** /v1/account/organization | 
@@ -163,6 +173,9 @@ Class | Method | HTTP request | Description
 *ProfileApi* | [**UpdateUser**](docs/ProfileApi.md#updateuser) | **Put** /v1/account/profile | 
 *ProfileApi* | [**UpdateUser2**](docs/ProfileApi.md#updateuser2) | **Patch** /v1/account/profile | 
 *ProfileApi* | [**Validate**](docs/ProfileApi.md#validate) | **Post** /v1/account/validate/{id} | 
+*ProvisioningApi* | [**CreateStageAttempt**](docs/ProvisioningApi.md#createstageattempt) | **Post** /v1/provisioning/{deployment_id}/status/{stage}/{attempt} | Create an attempt for a stage
+*ProvisioningApi* | [**DeclareStageProgress**](docs/ProvisioningApi.md#declarestageprogress) | **Patch** /v1/provisioning/{deployment_id}/status/{stage}/{attempt} | Declare stage progress
+*ProvisioningApi* | [**DeclareStepProgress**](docs/ProvisioningApi.md#declarestepprogress) | **Patch** /v1/provisioning/{deployment_id}/status/{stage}/{attempt}/{step} | Declare step progress
 *QuotasApi* | [**ReviewOrganizationCapacity**](docs/QuotasApi.md#revieworganizationcapacity) | **Post** /v1/quotas/capacity | Review Organization Capacity
 *RegionalDeploymentsApi* | [**GetRegionalDeployment**](docs/RegionalDeploymentsApi.md#getregionaldeployment) | **Get** /v1/regional_deployments/{id} | Experimental: Get regional deployment Use at your own risk
 *RegionalDeploymentsApi* | [**ListRegionalDeploymentEvents**](docs/RegionalDeploymentsApi.md#listregionaldeploymentevents) | **Get** /v1/regional_deployment_events | List Regional Deployment events
@@ -178,6 +191,7 @@ Class | Method | HTTP request | Description
 *SecretsApi* | [**RevealSecret**](docs/SecretsApi.md#revealsecret) | **Post** /v1/secrets/{id}/reveal | 
 *SecretsApi* | [**UpdateSecret**](docs/SecretsApi.md#updatesecret) | **Put** /v1/secrets/{id} | 
 *SecretsApi* | [**UpdateSecret2**](docs/SecretsApi.md#updatesecret2) | **Patch** /v1/secrets/{id} | 
+*ServicesApi* | [**Autocomplete**](docs/ServicesApi.md#autocomplete) | **Post** /v1/services-autocomplete | Generate autocomplete definition for a service
 *ServicesApi* | [**CreateService**](docs/ServicesApi.md#createservice) | **Post** /v1/services | Create Service
 *ServicesApi* | [**DeleteService**](docs/ServicesApi.md#deleteservice) | **Delete** /v1/services/{id} | Delete Service
 *ServicesApi* | [**GetService**](docs/ServicesApi.md#getservice) | **Get** /v1/services/{id} | Get Service
@@ -192,6 +206,11 @@ Class | Method | HTTP request | Description
 *SessionsApi* | [**Logout**](docs/SessionsApi.md#logout) | **Delete** /v1/account/logout | Logout user
 *SessionsApi* | [**NewSession**](docs/SessionsApi.md#newsession) | **Post** /v1/account/session | New session
 *SessionsApi* | [**RefreshToken**](docs/SessionsApi.md#refreshtoken) | **Put** /v1/account/refresh | Refresh token
+*SnapshotsApi* | [**CreateSnapshot**](docs/SnapshotsApi.md#createsnapshot) | **Post** /v1/snapshots | Create a Snapshot
+*SnapshotsApi* | [**DeleteSnapshot**](docs/SnapshotsApi.md#deletesnapshot) | **Delete** /v1/snapshots/{id} | Delete a Snapshot
+*SnapshotsApi* | [**GetSnapshot**](docs/SnapshotsApi.md#getsnapshot) | **Get** /v1/snapshots/{id} | Get a Snapshot
+*SnapshotsApi* | [**ListSnapshots**](docs/SnapshotsApi.md#listsnapshots) | **Get** /v1/snapshots | List all Snapshots
+*SnapshotsApi* | [**UpdateSnapshot**](docs/SnapshotsApi.md#updatesnapshot) | **Post** /v1/snapshots/{id} | Update a Snapshot
 *SsoApi* | [**CannyAuth**](docs/SsoApi.md#cannyauth) | **Post** /v1/sso/canny | 
 *SsoApi* | [**DiscourseAuth**](docs/SsoApi.md#discourseauth) | **Post** /v1/sso/discourse | 
 *SubscriptionsApi* | [**GetSubscription**](docs/SubscriptionsApi.md#getsubscription) | **Get** /v1/subscriptions/{id} | Get Subscription
@@ -213,17 +232,26 @@ Class | Method | HTTP request | Description
  - [AppStatus](docs/AppStatus.md)
  - [AppUsage](docs/AppUsage.md)
  - [AppsSummary](docs/AppsSummary.md)
+ - [Archive](docs/Archive.md)
+ - [ArchiveDeploymentMetadata](docs/ArchiveDeploymentMetadata.md)
+ - [ArchiveSource](docs/ArchiveSource.md)
  - [AutoRelease](docs/AutoRelease.md)
  - [AutoReleaseGroup](docs/AutoReleaseGroup.md)
+ - [AutocompleteReply](docs/AutocompleteReply.md)
+ - [AutocompleteRequest](docs/AutocompleteRequest.md)
  - [AzureContainerRegistryConfiguration](docs/AzureContainerRegistryConfiguration.md)
  - [BuildpackBuilder](docs/BuildpackBuilder.md)
  - [CannyAuthReply](docs/CannyAuthReply.md)
+ - [CatalogGPUDetails](docs/CatalogGPUDetails.md)
  - [CatalogInstance](docs/CatalogInstance.md)
  - [CatalogInstanceListItem](docs/CatalogInstanceListItem.md)
+ - [ConfigFile](docs/ConfigFile.md)
  - [ConfirmPaymentAuthorizationReply](docs/ConfirmPaymentAuthorizationReply.md)
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
  - [CreateApp](docs/CreateApp.md)
  - [CreateAppReply](docs/CreateAppReply.md)
+ - [CreateArchive](docs/CreateArchive.md)
+ - [CreateArchiveReply](docs/CreateArchiveReply.md)
  - [CreateCredential](docs/CreateCredential.md)
  - [CreateCredentialReply](docs/CreateCredentialReply.md)
  - [CreateDomain](docs/CreateDomain.md)
@@ -233,10 +261,15 @@ Class | Method | HTTP request | Description
  - [CreateOrganizationReply](docs/CreateOrganizationReply.md)
  - [CreateOrganizationRequest](docs/CreateOrganizationRequest.md)
  - [CreatePaymentAuthorizationReply](docs/CreatePaymentAuthorizationReply.md)
+ - [CreatePersistentVolumeReply](docs/CreatePersistentVolumeReply.md)
+ - [CreatePersistentVolumeRequest](docs/CreatePersistentVolumeRequest.md)
  - [CreateSecret](docs/CreateSecret.md)
  - [CreateSecretReply](docs/CreateSecretReply.md)
  - [CreateService](docs/CreateService.md)
  - [CreateServiceReply](docs/CreateServiceReply.md)
+ - [CreateSnapshotReply](docs/CreateSnapshotReply.md)
+ - [CreateSnapshotRequest](docs/CreateSnapshotRequest.md)
+ - [CreateStageAttemptRequest](docs/CreateStageAttemptRequest.md)
  - [Credential](docs/Credential.md)
  - [CredentialType](docs/CredentialType.md)
  - [DatabaseDeploymentMetadata](docs/DatabaseDeploymentMetadata.md)
@@ -244,8 +277,12 @@ Class | Method | HTTP request | Description
  - [DatabaseSource](docs/DatabaseSource.md)
  - [DatacenterListItem](docs/DatacenterListItem.md)
  - [DeactivateOrganizationReply](docs/DeactivateOrganizationReply.md)
+ - [DeclareStageProgressRequest](docs/DeclareStageProgressRequest.md)
+ - [DeclareStepProgressRequest](docs/DeclareStepProgressRequest.md)
  - [DeclineOrganizationInvitationReply](docs/DeclineOrganizationInvitationReply.md)
  - [DeleteOrganizationReply](docs/DeleteOrganizationReply.md)
+ - [DeletePersistentVolumeReply](docs/DeletePersistentVolumeReply.md)
+ - [DeleteSnapshotReply](docs/DeleteSnapshotReply.md)
  - [DeleteUserReply](docs/DeleteUserReply.md)
  - [Deployment](docs/Deployment.md)
  - [DeploymentDatabaseInfo](docs/DeploymentDatabaseInfo.md)
@@ -263,14 +300,22 @@ Class | Method | HTTP request | Description
  - [DeploymentProvisioningInfo](docs/DeploymentProvisioningInfo.md)
  - [DeploymentProvisioningInfoStage](docs/DeploymentProvisioningInfoStage.md)
  - [DeploymentProvisioningInfoStageBuildAttempt](docs/DeploymentProvisioningInfoStageBuildAttempt.md)
+ - [DeploymentProvisioningInfoStageBuildAttemptBuildStep](docs/DeploymentProvisioningInfoStageBuildAttemptBuildStep.md)
  - [DeploymentProvisioningInfoStageStatus](docs/DeploymentProvisioningInfoStageStatus.md)
+ - [DeploymentRole](docs/DeploymentRole.md)
  - [DeploymentRoute](docs/DeploymentRoute.md)
  - [DeploymentScaling](docs/DeploymentScaling.md)
  - [DeploymentScalingTarget](docs/DeploymentScalingTarget.md)
  - [DeploymentScalingTargetAverageCPU](docs/DeploymentScalingTargetAverageCPU.md)
  - [DeploymentScalingTargetAverageMem](docs/DeploymentScalingTargetAverageMem.md)
+ - [DeploymentScalingTargetConcurrentRequests](docs/DeploymentScalingTargetConcurrentRequests.md)
  - [DeploymentScalingTargetRequestsPerSecond](docs/DeploymentScalingTargetRequestsPerSecond.md)
+ - [DeploymentScalingTargetRequestsResponseTime](docs/DeploymentScalingTargetRequestsResponseTime.md)
+ - [DeploymentScalingTargetSleepIdleDelay](docs/DeploymentScalingTargetSleepIdleDelay.md)
  - [DeploymentStatus](docs/DeploymentStatus.md)
+ - [DeploymentStrategy](docs/DeploymentStrategy.md)
+ - [DeploymentStrategyType](docs/DeploymentStrategyType.md)
+ - [DeploymentVolume](docs/DeploymentVolume.md)
  - [DesiredDeployment](docs/DesiredDeployment.md)
  - [DesiredDeploymentGroup](docs/DesiredDeploymentGroup.md)
  - [DigitalOceanRegistryConfiguration](docs/DigitalOceanRegistryConfiguration.md)
@@ -300,6 +345,7 @@ Class | Method | HTTP request | Description
  - [GetDomainReply](docs/GetDomainReply.md)
  - [GetGithubInstallationReply](docs/GetGithubInstallationReply.md)
  - [GetInstanceReply](docs/GetInstanceReply.md)
+ - [GetIntercomProfileReply](docs/GetIntercomProfileReply.md)
  - [GetMetricsReply](docs/GetMetricsReply.md)
  - [GetMetricsReplyMetric](docs/GetMetricsReplyMetric.md)
  - [GetOAuthOptionsReply](docs/GetOAuthOptionsReply.md)
@@ -309,19 +355,19 @@ Class | Method | HTTP request | Description
  - [GetOrganizationUsageDetailsReply](docs/GetOrganizationUsageDetailsReply.md)
  - [GetOrganizationUsageReply](docs/GetOrganizationUsageReply.md)
  - [GetPaymentMethodReply](docs/GetPaymentMethodReply.md)
+ - [GetPersistentVolumeReply](docs/GetPersistentVolumeReply.md)
  - [GetQuotasReply](docs/GetQuotasReply.md)
  - [GetRegionReply](docs/GetRegionReply.md)
  - [GetRegionalDeploymentReply](docs/GetRegionalDeploymentReply.md)
  - [GetSecretReply](docs/GetSecretReply.md)
  - [GetServiceReply](docs/GetServiceReply.md)
+ - [GetSnapshotReply](docs/GetSnapshotReply.md)
  - [GetSubscriptionReply](docs/GetSubscriptionReply.md)
  - [GetUserOrganizationInvitationReply](docs/GetUserOrganizationInvitationReply.md)
  - [GitDeploymentMetadata](docs/GitDeploymentMetadata.md)
- - [GitDeploymentMetadataProvider](docs/GitDeploymentMetadataProvider.md)
  - [GitHubRegistryConfiguration](docs/GitHubRegistryConfiguration.md)
  - [GitLabRegistryConfiguration](docs/GitLabRegistryConfiguration.md)
  - [GitSource](docs/GitSource.md)
- - [GithubInstallationCallbackRequest](docs/GithubInstallationCallbackRequest.md)
  - [GithubInstallationReply](docs/GithubInstallationReply.md)
  - [GithubInstallationRequest](docs/GithubInstallationRequest.md)
  - [GoogleProtobufAny](docs/GoogleProtobufAny.md)
@@ -329,6 +375,7 @@ Class | Method | HTTP request | Description
  - [GoogleRpcStatus](docs/GoogleRpcStatus.md)
  - [HTTPHeader](docs/HTTPHeader.md)
  - [HTTPHealthCheck](docs/HTTPHealthCheck.md)
+ - [HasUnpaidInvoicesReply](docs/HasUnpaidInvoicesReply.md)
  - [Instance](docs/Instance.md)
  - [InstanceEvent](docs/InstanceEvent.md)
  - [InstanceListItem](docs/InstanceListItem.md)
@@ -365,12 +412,15 @@ Class | Method | HTTP request | Description
  - [ListOrganizationInvitationsReply](docs/ListOrganizationInvitationsReply.md)
  - [ListOrganizationMembersReply](docs/ListOrganizationMembersReply.md)
  - [ListPaymentMethodsReply](docs/ListPaymentMethodsReply.md)
+ - [ListPersistentVolumeEventsReply](docs/ListPersistentVolumeEventsReply.md)
+ - [ListPersistentVolumesReply](docs/ListPersistentVolumesReply.md)
  - [ListRegionalDeploymentEventsReply](docs/ListRegionalDeploymentEventsReply.md)
  - [ListRegionalDeploymentsReply](docs/ListRegionalDeploymentsReply.md)
  - [ListRegionsReply](docs/ListRegionsReply.md)
  - [ListSecretsReply](docs/ListSecretsReply.md)
  - [ListServiceEventsReply](docs/ListServiceEventsReply.md)
  - [ListServicesReply](docs/ListServicesReply.md)
+ - [ListSnapshotsReply](docs/ListSnapshotsReply.md)
  - [ListUserOrganizationInvitationsReply](docs/ListUserOrganizationInvitationsReply.md)
  - [LogEntry](docs/LogEntry.md)
  - [LoginReply](docs/LoginReply.md)
@@ -384,6 +434,11 @@ Class | Method | HTTP request | Description
  - [NeonPostgresDatabaseNeonRole](docs/NeonPostgresDatabaseNeonRole.md)
  - [NeonPostgresSummary](docs/NeonPostgresSummary.md)
  - [NextInvoiceReply](docs/NextInvoiceReply.md)
+ - [NextInvoiceReplyDiscount](docs/NextInvoiceReplyDiscount.md)
+ - [NextInvoiceReplyDiscountType](docs/NextInvoiceReplyDiscountType.md)
+ - [NextInvoiceReplyLine](docs/NextInvoiceReplyLine.md)
+ - [NextInvoiceReplyLinePeriod](docs/NextInvoiceReplyLinePeriod.md)
+ - [NextInvoiceReplyLinePrice](docs/NextInvoiceReplyLinePrice.md)
  - [Notification](docs/Notification.md)
  - [NotificationList](docs/NotificationList.md)
  - [OAuthCallbackReply](docs/OAuthCallbackReply.md)
@@ -402,6 +457,11 @@ Class | Method | HTTP request | Description
  - [PaymentMethod](docs/PaymentMethod.md)
  - [PaymentMethodStatus](docs/PaymentMethodStatus.md)
  - [PeriodUsage](docs/PeriodUsage.md)
+ - [PersistentVolume](docs/PersistentVolume.md)
+ - [PersistentVolumeBackingStore](docs/PersistentVolumeBackingStore.md)
+ - [PersistentVolumeEvent](docs/PersistentVolumeEvent.md)
+ - [PersistentVolumeQuotas](docs/PersistentVolumeQuotas.md)
+ - [PersistentVolumeStatus](docs/PersistentVolumeStatus.md)
  - [Plan](docs/Plan.md)
  - [Port](docs/Port.md)
  - [PrivateRegistryConfiguration](docs/PrivateRegistryConfiguration.md)
@@ -419,8 +479,9 @@ Class | Method | HTTP request | Description
  - [RegionalDeploymentDefinitionType](docs/RegionalDeploymentDefinitionType.md)
  - [RegionalDeploymentEvent](docs/RegionalDeploymentEvent.md)
  - [RegionalDeploymentListItem](docs/RegionalDeploymentListItem.md)
- - [RegionalDeploymentMetadata](docs/RegionalDeploymentMetadata.md)
+ - [RegionalDeploymentRole](docs/RegionalDeploymentRole.md)
  - [RegionalDeploymentStatus](docs/RegionalDeploymentStatus.md)
+ - [RegionalDeploymentVolume](docs/RegionalDeploymentVolume.md)
  - [RemoveOrganizationMemberReply](docs/RemoveOrganizationMemberReply.md)
  - [ResendOrganizationInvitationReply](docs/ResendOrganizationInvitationReply.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
@@ -441,6 +502,9 @@ Class | Method | HTTP request | Description
  - [ServiceSummary](docs/ServiceSummary.md)
  - [ServiceType](docs/ServiceType.md)
  - [ServiceUsage](docs/ServiceUsage.md)
+ - [Snapshot](docs/Snapshot.md)
+ - [SnapshotStatus](docs/SnapshotStatus.md)
+ - [SnapshotType](docs/SnapshotType.md)
  - [StreamResultOfExecCommandReply](docs/StreamResultOfExecCommandReply.md)
  - [StreamResultOfLogEntry](docs/StreamResultOfLogEntry.md)
  - [Subscription](docs/Subscription.md)
@@ -452,6 +516,8 @@ Class | Method | HTTP request | Description
  - [TriggerDeploymentMetadata](docs/TriggerDeploymentMetadata.md)
  - [TriggerDeploymentMetadataActorType](docs/TriggerDeploymentMetadataActorType.md)
  - [TriggerDeploymentMetadataTriggerType](docs/TriggerDeploymentMetadataTriggerType.md)
+ - [TriggerGitDeploymentMetadata](docs/TriggerGitDeploymentMetadata.md)
+ - [TriggerGitDeploymentMetadataProvider](docs/TriggerGitDeploymentMetadataProvider.md)
  - [UpdateApp](docs/UpdateApp.md)
  - [UpdateAppReply](docs/UpdateAppReply.md)
  - [UpdateCredentialReply](docs/UpdateCredentialReply.md)
@@ -461,9 +527,13 @@ Class | Method | HTTP request | Description
  - [UpdateOrganizationPlanRequest](docs/UpdateOrganizationPlanRequest.md)
  - [UpdateOrganizationReply](docs/UpdateOrganizationReply.md)
  - [UpdatePasswordRequest](docs/UpdatePasswordRequest.md)
+ - [UpdatePersistentVolumeReply](docs/UpdatePersistentVolumeReply.md)
+ - [UpdatePersistentVolumeRequest](docs/UpdatePersistentVolumeRequest.md)
  - [UpdateSecretReply](docs/UpdateSecretReply.md)
  - [UpdateService](docs/UpdateService.md)
  - [UpdateServiceReply](docs/UpdateServiceReply.md)
+ - [UpdateSnapshotReply](docs/UpdateSnapshotReply.md)
+ - [UpdateSnapshotRequest](docs/UpdateSnapshotRequest.md)
  - [UpdateUserRequestUserUpdateBody](docs/UpdateUserRequestUserUpdateBody.md)
  - [UpsertSignupQualificationReply](docs/UpsertSignupQualificationReply.md)
  - [UpsertSignupQualificationRequest](docs/UpsertSignupQualificationRequest.md)
@@ -473,6 +543,8 @@ Class | Method | HTTP request | Description
  - [UserFlags](docs/UserFlags.md)
  - [UserReply](docs/UserReply.md)
  - [UserRoleRole](docs/UserRoleRole.md)
+ - [VerifyDockerImageReply](docs/VerifyDockerImageReply.md)
+ - [VerifyDockerImageReplyErrCode](docs/VerifyDockerImageReplyErrCode.md)
 
 
 ## Documentation For Authorization

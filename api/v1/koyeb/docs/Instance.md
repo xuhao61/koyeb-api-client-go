@@ -12,12 +12,15 @@ Name | Type | Description | Notes
 **ServiceId** | Pointer to **string** |  | [optional] 
 **RegionalDeploymentId** | Pointer to **string** |  | [optional] 
 **AllocationId** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**ReplicaIndex** | Pointer to **int64** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **Datacenter** | Pointer to **string** |  | [optional] 
 **Hypervisor** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to [**InstanceStatus**](InstanceStatus.md) |  | [optional] [default to INSTANCESTATUS_ALLOCATING]
 **Messages** | Pointer to **[]string** |  | [optional] 
 **StartedAt** | Pointer to **time.Time** |  | [optional] 
+**SucceededAt** | Pointer to **time.Time** |  | [optional] 
 **TerminatedAt** | Pointer to **time.Time** |  | [optional] 
 **XyzDeploymentId** | Pointer to **string** | WARNING: Please don&#39;t use the following attribute. Koyeb doesn&#39;t guarantee backwards compatible breaking change and reserve the right to completely drop it without notice. USE AT YOUR OWN RISK. | [optional] 
 
@@ -240,6 +243,56 @@ SetAllocationId sets AllocationId field to given value.
 
 HasAllocationId returns a boolean if a field has been set.
 
+### GetType
+
+`func (o *Instance) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *Instance) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *Instance) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *Instance) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetReplicaIndex
+
+`func (o *Instance) GetReplicaIndex() int64`
+
+GetReplicaIndex returns the ReplicaIndex field if non-nil, zero value otherwise.
+
+### GetReplicaIndexOk
+
+`func (o *Instance) GetReplicaIndexOk() (*int64, bool)`
+
+GetReplicaIndexOk returns a tuple with the ReplicaIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplicaIndex
+
+`func (o *Instance) SetReplicaIndex(v int64)`
+
+SetReplicaIndex sets ReplicaIndex field to given value.
+
+### HasReplicaIndex
+
+`func (o *Instance) HasReplicaIndex() bool`
+
+HasReplicaIndex returns a boolean if a field has been set.
+
 ### GetRegion
 
 `func (o *Instance) GetRegion() string`
@@ -389,6 +442,31 @@ SetStartedAt sets StartedAt field to given value.
 `func (o *Instance) HasStartedAt() bool`
 
 HasStartedAt returns a boolean if a field has been set.
+
+### GetSucceededAt
+
+`func (o *Instance) GetSucceededAt() time.Time`
+
+GetSucceededAt returns the SucceededAt field if non-nil, zero value otherwise.
+
+### GetSucceededAtOk
+
+`func (o *Instance) GetSucceededAtOk() (*time.Time, bool)`
+
+GetSucceededAtOk returns a tuple with the SucceededAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSucceededAt
+
+`func (o *Instance) SetSucceededAt(v time.Time)`
+
+SetSucceededAt sets SucceededAt field to given value.
+
+### HasSucceededAt
+
+`func (o *Instance) HasSucceededAt() bool`
+
+HasSucceededAt returns a boolean if a field has been set.
 
 ### GetTerminatedAt
 
