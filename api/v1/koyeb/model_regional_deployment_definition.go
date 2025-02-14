@@ -18,6 +18,7 @@ import (
 type RegionalDeploymentDefinition struct {
 	Name *string `json:"name,omitempty"`
 	Type *RegionalDeploymentDefinitionType `json:"type,omitempty"`
+	Strategy *DeploymentStrategy `json:"strategy,omitempty"`
 	Routes []Route `json:"routes,omitempty"`
 	Ports []Port `json:"ports,omitempty"`
 	Env []Env `json:"env,omitempty"`
@@ -26,10 +27,12 @@ type RegionalDeploymentDefinition struct {
 	InstanceType *string `json:"instance_type,omitempty"`
 	DeploymentGroup *string `json:"deployment_group,omitempty"`
 	HealthChecks []DeploymentHealthCheck `json:"health_checks,omitempty"`
+	Volumes []RegionalDeploymentVolume `json:"volumes,omitempty"`
+	ConfigFiles []ConfigFile `json:"config_files,omitempty"`
 	SkipCache *bool `json:"skip_cache,omitempty"`
-	UseKumaV2 *bool `json:"use_kuma_v2,omitempty"`
 	Docker *DockerSource `json:"docker,omitempty"`
 	Git *GitSource `json:"git,omitempty"`
+	Archive *ArchiveSource `json:"archive,omitempty"`
 }
 
 // NewRegionalDeploymentDefinition instantiates a new RegionalDeploymentDefinition object
@@ -115,6 +118,38 @@ func (o *RegionalDeploymentDefinition) HasType() bool {
 // SetType gets a reference to the given RegionalDeploymentDefinitionType and assigns it to the Type field.
 func (o *RegionalDeploymentDefinition) SetType(v RegionalDeploymentDefinitionType) {
 	o.Type = &v
+}
+
+// GetStrategy returns the Strategy field value if set, zero value otherwise.
+func (o *RegionalDeploymentDefinition) GetStrategy() DeploymentStrategy {
+	if o == nil || isNil(o.Strategy) {
+		var ret DeploymentStrategy
+		return ret
+	}
+	return *o.Strategy
+}
+
+// GetStrategyOk returns a tuple with the Strategy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeploymentDefinition) GetStrategyOk() (*DeploymentStrategy, bool) {
+	if o == nil || isNil(o.Strategy) {
+    return nil, false
+	}
+	return o.Strategy, true
+}
+
+// HasStrategy returns a boolean if a field has been set.
+func (o *RegionalDeploymentDefinition) HasStrategy() bool {
+	if o != nil && !isNil(o.Strategy) {
+		return true
+	}
+
+	return false
+}
+
+// SetStrategy gets a reference to the given DeploymentStrategy and assigns it to the Strategy field.
+func (o *RegionalDeploymentDefinition) SetStrategy(v DeploymentStrategy) {
+	o.Strategy = &v
 }
 
 // GetRoutes returns the Routes field value if set, zero value otherwise.
@@ -373,6 +408,70 @@ func (o *RegionalDeploymentDefinition) SetHealthChecks(v []DeploymentHealthCheck
 	o.HealthChecks = v
 }
 
+// GetVolumes returns the Volumes field value if set, zero value otherwise.
+func (o *RegionalDeploymentDefinition) GetVolumes() []RegionalDeploymentVolume {
+	if o == nil || isNil(o.Volumes) {
+		var ret []RegionalDeploymentVolume
+		return ret
+	}
+	return o.Volumes
+}
+
+// GetVolumesOk returns a tuple with the Volumes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeploymentDefinition) GetVolumesOk() ([]RegionalDeploymentVolume, bool) {
+	if o == nil || isNil(o.Volumes) {
+    return nil, false
+	}
+	return o.Volumes, true
+}
+
+// HasVolumes returns a boolean if a field has been set.
+func (o *RegionalDeploymentDefinition) HasVolumes() bool {
+	if o != nil && !isNil(o.Volumes) {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumes gets a reference to the given []RegionalDeploymentVolume and assigns it to the Volumes field.
+func (o *RegionalDeploymentDefinition) SetVolumes(v []RegionalDeploymentVolume) {
+	o.Volumes = v
+}
+
+// GetConfigFiles returns the ConfigFiles field value if set, zero value otherwise.
+func (o *RegionalDeploymentDefinition) GetConfigFiles() []ConfigFile {
+	if o == nil || isNil(o.ConfigFiles) {
+		var ret []ConfigFile
+		return ret
+	}
+	return o.ConfigFiles
+}
+
+// GetConfigFilesOk returns a tuple with the ConfigFiles field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeploymentDefinition) GetConfigFilesOk() ([]ConfigFile, bool) {
+	if o == nil || isNil(o.ConfigFiles) {
+    return nil, false
+	}
+	return o.ConfigFiles, true
+}
+
+// HasConfigFiles returns a boolean if a field has been set.
+func (o *RegionalDeploymentDefinition) HasConfigFiles() bool {
+	if o != nil && !isNil(o.ConfigFiles) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigFiles gets a reference to the given []ConfigFile and assigns it to the ConfigFiles field.
+func (o *RegionalDeploymentDefinition) SetConfigFiles(v []ConfigFile) {
+	o.ConfigFiles = v
+}
+
 // GetSkipCache returns the SkipCache field value if set, zero value otherwise.
 func (o *RegionalDeploymentDefinition) GetSkipCache() bool {
 	if o == nil || isNil(o.SkipCache) {
@@ -403,38 +502,6 @@ func (o *RegionalDeploymentDefinition) HasSkipCache() bool {
 // SetSkipCache gets a reference to the given bool and assigns it to the SkipCache field.
 func (o *RegionalDeploymentDefinition) SetSkipCache(v bool) {
 	o.SkipCache = &v
-}
-
-// GetUseKumaV2 returns the UseKumaV2 field value if set, zero value otherwise.
-func (o *RegionalDeploymentDefinition) GetUseKumaV2() bool {
-	if o == nil || isNil(o.UseKumaV2) {
-		var ret bool
-		return ret
-	}
-	return *o.UseKumaV2
-}
-
-// GetUseKumaV2Ok returns a tuple with the UseKumaV2 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *RegionalDeploymentDefinition) GetUseKumaV2Ok() (*bool, bool) {
-	if o == nil || isNil(o.UseKumaV2) {
-    return nil, false
-	}
-	return o.UseKumaV2, true
-}
-
-// HasUseKumaV2 returns a boolean if a field has been set.
-func (o *RegionalDeploymentDefinition) HasUseKumaV2() bool {
-	if o != nil && !isNil(o.UseKumaV2) {
-		return true
-	}
-
-	return false
-}
-
-// SetUseKumaV2 gets a reference to the given bool and assigns it to the UseKumaV2 field.
-func (o *RegionalDeploymentDefinition) SetUseKumaV2(v bool) {
-	o.UseKumaV2 = &v
 }
 
 // GetDocker returns the Docker field value if set, zero value otherwise.
@@ -501,6 +568,38 @@ func (o *RegionalDeploymentDefinition) SetGit(v GitSource) {
 	o.Git = &v
 }
 
+// GetArchive returns the Archive field value if set, zero value otherwise.
+func (o *RegionalDeploymentDefinition) GetArchive() ArchiveSource {
+	if o == nil || isNil(o.Archive) {
+		var ret ArchiveSource
+		return ret
+	}
+	return *o.Archive
+}
+
+// GetArchiveOk returns a tuple with the Archive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionalDeploymentDefinition) GetArchiveOk() (*ArchiveSource, bool) {
+	if o == nil || isNil(o.Archive) {
+    return nil, false
+	}
+	return o.Archive, true
+}
+
+// HasArchive returns a boolean if a field has been set.
+func (o *RegionalDeploymentDefinition) HasArchive() bool {
+	if o != nil && !isNil(o.Archive) {
+		return true
+	}
+
+	return false
+}
+
+// SetArchive gets a reference to the given ArchiveSource and assigns it to the Archive field.
+func (o *RegionalDeploymentDefinition) SetArchive(v ArchiveSource) {
+	o.Archive = &v
+}
+
 func (o RegionalDeploymentDefinition) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Name) {
@@ -508,6 +607,9 @@ func (o RegionalDeploymentDefinition) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !isNil(o.Strategy) {
+		toSerialize["strategy"] = o.Strategy
 	}
 	if !isNil(o.Routes) {
 		toSerialize["routes"] = o.Routes
@@ -533,17 +635,23 @@ func (o RegionalDeploymentDefinition) MarshalJSON() ([]byte, error) {
 	if !isNil(o.HealthChecks) {
 		toSerialize["health_checks"] = o.HealthChecks
 	}
+	if !isNil(o.Volumes) {
+		toSerialize["volumes"] = o.Volumes
+	}
+	if !isNil(o.ConfigFiles) {
+		toSerialize["config_files"] = o.ConfigFiles
+	}
 	if !isNil(o.SkipCache) {
 		toSerialize["skip_cache"] = o.SkipCache
-	}
-	if !isNil(o.UseKumaV2) {
-		toSerialize["use_kuma_v2"] = o.UseKumaV2
 	}
 	if !isNil(o.Docker) {
 		toSerialize["docker"] = o.Docker
 	}
 	if !isNil(o.Git) {
 		toSerialize["git"] = o.Git
+	}
+	if !isNil(o.Archive) {
+		toSerialize["archive"] = o.Archive
 	}
 	return json.Marshal(toSerialize)
 }

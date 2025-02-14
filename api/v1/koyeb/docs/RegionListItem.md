@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Status** | Pointer to **string** |  | [optional] 
 **Instances** | Pointer to **[]string** |  | [optional] 
 **Datacenters** | Pointer to **[]string** |  | [optional] 
+**VolumesEnabled** | Pointer to **bool** |  | [optional] 
+**Scope** | Pointer to **string** | The scope of the region, continent, metropolitan area, etc. | [optional] 
 
 ## Methods
 
@@ -179,6 +181,56 @@ SetDatacenters sets Datacenters field to given value.
 `func (o *RegionListItem) HasDatacenters() bool`
 
 HasDatacenters returns a boolean if a field has been set.
+
+### GetVolumesEnabled
+
+`func (o *RegionListItem) GetVolumesEnabled() bool`
+
+GetVolumesEnabled returns the VolumesEnabled field if non-nil, zero value otherwise.
+
+### GetVolumesEnabledOk
+
+`func (o *RegionListItem) GetVolumesEnabledOk() (*bool, bool)`
+
+GetVolumesEnabledOk returns a tuple with the VolumesEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumesEnabled
+
+`func (o *RegionListItem) SetVolumesEnabled(v bool)`
+
+SetVolumesEnabled sets VolumesEnabled field to given value.
+
+### HasVolumesEnabled
+
+`func (o *RegionListItem) HasVolumesEnabled() bool`
+
+HasVolumesEnabled returns a boolean if a field has been set.
+
+### GetScope
+
+`func (o *RegionListItem) GetScope() string`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *RegionListItem) GetScopeOk() (*string, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *RegionListItem) SetScope(v string)`
+
+SetScope sets Scope field to given value.
+
+### HasScope
+
+`func (o *RegionListItem) HasScope() bool`
+
+HasScope returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
