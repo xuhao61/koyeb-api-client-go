@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**DeploymentDefinitionType**](DeploymentDefinitionType.md) |  | [optional] [default to DEPLOYMENTDEFINITIONTYPE_INVALID]
+**Strategy** | Pointer to [**DeploymentStrategy**](DeploymentStrategy.md) |  | [optional] 
 **Routes** | Pointer to [**[]DeploymentRoute**](DeploymentRoute.md) |  | [optional] 
 **Ports** | Pointer to [**[]DeploymentPort**](DeploymentPort.md) |  | [optional] 
 **Env** | Pointer to [**[]DeploymentEnv**](DeploymentEnv.md) |  | [optional] 
@@ -13,10 +14,13 @@ Name | Type | Description | Notes
 **Scalings** | Pointer to [**[]DeploymentScaling**](DeploymentScaling.md) |  | [optional] 
 **InstanceTypes** | Pointer to [**[]DeploymentInstanceType**](DeploymentInstanceType.md) |  | [optional] 
 **HealthChecks** | Pointer to [**[]DeploymentHealthCheck**](DeploymentHealthCheck.md) |  | [optional] 
+**Volumes** | Pointer to [**[]DeploymentVolume**](DeploymentVolume.md) |  | [optional] 
+**ConfigFiles** | Pointer to [**[]ConfigFile**](ConfigFile.md) |  | [optional] 
 **SkipCache** | Pointer to **bool** |  | [optional] 
 **Docker** | Pointer to [**DockerSource**](DockerSource.md) |  | [optional] 
 **Git** | Pointer to [**GitSource**](GitSource.md) |  | [optional] 
 **Database** | Pointer to [**DatabaseSource**](DatabaseSource.md) |  | [optional] 
+**Archive** | Pointer to [**ArchiveSource**](ArchiveSource.md) |  | [optional] 
 
 ## Methods
 
@@ -86,6 +90,31 @@ SetType sets Type field to given value.
 `func (o *DeploymentDefinition) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetStrategy
+
+`func (o *DeploymentDefinition) GetStrategy() DeploymentStrategy`
+
+GetStrategy returns the Strategy field if non-nil, zero value otherwise.
+
+### GetStrategyOk
+
+`func (o *DeploymentDefinition) GetStrategyOk() (*DeploymentStrategy, bool)`
+
+GetStrategyOk returns a tuple with the Strategy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStrategy
+
+`func (o *DeploymentDefinition) SetStrategy(v DeploymentStrategy)`
+
+SetStrategy sets Strategy field to given value.
+
+### HasStrategy
+
+`func (o *DeploymentDefinition) HasStrategy() bool`
+
+HasStrategy returns a boolean if a field has been set.
 
 ### GetRoutes
 
@@ -262,6 +291,56 @@ SetHealthChecks sets HealthChecks field to given value.
 
 HasHealthChecks returns a boolean if a field has been set.
 
+### GetVolumes
+
+`func (o *DeploymentDefinition) GetVolumes() []DeploymentVolume`
+
+GetVolumes returns the Volumes field if non-nil, zero value otherwise.
+
+### GetVolumesOk
+
+`func (o *DeploymentDefinition) GetVolumesOk() (*[]DeploymentVolume, bool)`
+
+GetVolumesOk returns a tuple with the Volumes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumes
+
+`func (o *DeploymentDefinition) SetVolumes(v []DeploymentVolume)`
+
+SetVolumes sets Volumes field to given value.
+
+### HasVolumes
+
+`func (o *DeploymentDefinition) HasVolumes() bool`
+
+HasVolumes returns a boolean if a field has been set.
+
+### GetConfigFiles
+
+`func (o *DeploymentDefinition) GetConfigFiles() []ConfigFile`
+
+GetConfigFiles returns the ConfigFiles field if non-nil, zero value otherwise.
+
+### GetConfigFilesOk
+
+`func (o *DeploymentDefinition) GetConfigFilesOk() (*[]ConfigFile, bool)`
+
+GetConfigFilesOk returns a tuple with the ConfigFiles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigFiles
+
+`func (o *DeploymentDefinition) SetConfigFiles(v []ConfigFile)`
+
+SetConfigFiles sets ConfigFiles field to given value.
+
+### HasConfigFiles
+
+`func (o *DeploymentDefinition) HasConfigFiles() bool`
+
+HasConfigFiles returns a boolean if a field has been set.
+
 ### GetSkipCache
 
 `func (o *DeploymentDefinition) GetSkipCache() bool`
@@ -361,6 +440,31 @@ SetDatabase sets Database field to given value.
 `func (o *DeploymentDefinition) HasDatabase() bool`
 
 HasDatabase returns a boolean if a field has been set.
+
+### GetArchive
+
+`func (o *DeploymentDefinition) GetArchive() ArchiveSource`
+
+GetArchive returns the Archive field if non-nil, zero value otherwise.
+
+### GetArchiveOk
+
+`func (o *DeploymentDefinition) GetArchiveOk() (*ArchiveSource, bool)`
+
+GetArchiveOk returns a tuple with the Archive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArchive
+
+`func (o *DeploymentDefinition) SetArchive(v ArchiveSource)`
+
+SetArchive sets Archive field to given value.
+
+### HasArchive
+
+`func (o *DeploymentDefinition) HasArchive() bool`
+
+HasArchive returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

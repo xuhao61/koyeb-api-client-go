@@ -22,6 +22,9 @@ type RegionListItem struct {
 	Status *string `json:"status,omitempty"`
 	Instances []string `json:"instances,omitempty"`
 	Datacenters []string `json:"datacenters,omitempty"`
+	VolumesEnabled *bool `json:"volumes_enabled,omitempty"`
+	// The scope of the region, continent, metropolitan area, etc.
+	Scope *string `json:"scope,omitempty"`
 }
 
 // NewRegionListItem instantiates a new RegionListItem object
@@ -233,6 +236,70 @@ func (o *RegionListItem) SetDatacenters(v []string) {
 	o.Datacenters = v
 }
 
+// GetVolumesEnabled returns the VolumesEnabled field value if set, zero value otherwise.
+func (o *RegionListItem) GetVolumesEnabled() bool {
+	if o == nil || isNil(o.VolumesEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.VolumesEnabled
+}
+
+// GetVolumesEnabledOk returns a tuple with the VolumesEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionListItem) GetVolumesEnabledOk() (*bool, bool) {
+	if o == nil || isNil(o.VolumesEnabled) {
+    return nil, false
+	}
+	return o.VolumesEnabled, true
+}
+
+// HasVolumesEnabled returns a boolean if a field has been set.
+func (o *RegionListItem) HasVolumesEnabled() bool {
+	if o != nil && !isNil(o.VolumesEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumesEnabled gets a reference to the given bool and assigns it to the VolumesEnabled field.
+func (o *RegionListItem) SetVolumesEnabled(v bool) {
+	o.VolumesEnabled = &v
+}
+
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *RegionListItem) GetScope() string {
+	if o == nil || isNil(o.Scope) {
+		var ret string
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionListItem) GetScopeOk() (*string, bool) {
+	if o == nil || isNil(o.Scope) {
+    return nil, false
+	}
+	return o.Scope, true
+}
+
+// HasScope returns a boolean if a field has been set.
+func (o *RegionListItem) HasScope() bool {
+	if o != nil && !isNil(o.Scope) {
+		return true
+	}
+
+	return false
+}
+
+// SetScope gets a reference to the given string and assigns it to the Scope field.
+func (o *RegionListItem) SetScope(v string) {
+	o.Scope = &v
+}
+
 func (o RegionListItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -252,6 +319,12 @@ func (o RegionListItem) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Datacenters) {
 		toSerialize["datacenters"] = o.Datacenters
+	}
+	if !isNil(o.VolumesEnabled) {
+		toSerialize["volumes_enabled"] = o.VolumesEnabled
+	}
+	if !isNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
 	}
 	return json.Marshal(toSerialize)
 }

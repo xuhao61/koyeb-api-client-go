@@ -254,6 +254,17 @@ func (a *RepositoriesApiService) ListBranchesExecute(r ApiListBranchesRequest) (
             		newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 			var v GoogleRpcStatus
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -281,6 +292,7 @@ type ApiListRepositoriesRequest struct {
 	ctx context.Context
 	ApiService RepositoriesApi
 	name *string
+	nameSearchOp *string
 	limit *string
 	offset *string
 }
@@ -288,6 +300,12 @@ type ApiListRepositoriesRequest struct {
 // (Optional) Filter on repository name using a fuzzy search.
 func (r ApiListRepositoriesRequest) Name(name string) ApiListRepositoriesRequest {
 	r.name = &name
+	return r
+}
+
+// (Optional) Define search operation for repository name. Accept either \&quot;fuzzy\&quot; or \&quot;equality\&quot;, use \&quot;fuzzy\&quot; by default.
+func (r ApiListRepositoriesRequest) NameSearchOp(nameSearchOp string) ApiListRepositoriesRequest {
+	r.nameSearchOp = &nameSearchOp
 	return r
 }
 
@@ -343,6 +361,9 @@ func (a *RepositoriesApiService) ListRepositoriesExecute(r ApiListRepositoriesRe
 
 	if r.name != nil {
 		localVarQueryParams.Add("name", parameterToString(*r.name, ""))
+	}
+	if r.nameSearchOp != nil {
+		localVarQueryParams.Add("name_search_op", parameterToString(*r.nameSearchOp, ""))
 	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
@@ -448,6 +469,17 @@ func (a *RepositoriesApiService) ListRepositoriesExecute(r ApiListRepositoriesRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -626,6 +658,17 @@ func (a *RepositoriesApiService) ResyncOrganizationExecute(r ApiResyncOrganizati
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

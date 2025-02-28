@@ -35,6 +35,8 @@ type Deployment struct {
 	Messages []string `json:"messages,omitempty"`
 	ProvisioningInfo *DeploymentProvisioningInfo `json:"provisioning_info,omitempty"`
 	DatabaseInfo *DeploymentDatabaseInfo `json:"database_info,omitempty"`
+	SkipBuild *bool `json:"skip_build,omitempty"`
+	Role *DeploymentRole `json:"role,omitempty"`
 	Version *string `json:"version,omitempty"`
 	DeploymentGroup *string `json:"deployment_group,omitempty"`
 }
@@ -47,6 +49,8 @@ func NewDeployment() *Deployment {
 	this := Deployment{}
 	var status DeploymentStatus = DEPLOYMENTSTATUS_PENDING
 	this.Status = &status
+	var role DeploymentRole = DEPLOYMENTROLE_INVALID
+	this.Role = &role
 	return &this
 }
 
@@ -57,6 +61,8 @@ func NewDeploymentWithDefaults() *Deployment {
 	this := Deployment{}
 	var status DeploymentStatus = DEPLOYMENTSTATUS_PENDING
 	this.Status = &status
+	var role DeploymentRole = DEPLOYMENTROLE_INVALID
+	this.Role = &role
 	return &this
 }
 
@@ -636,6 +642,70 @@ func (o *Deployment) SetDatabaseInfo(v DeploymentDatabaseInfo) {
 	o.DatabaseInfo = &v
 }
 
+// GetSkipBuild returns the SkipBuild field value if set, zero value otherwise.
+func (o *Deployment) GetSkipBuild() bool {
+	if o == nil || isNil(o.SkipBuild) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipBuild
+}
+
+// GetSkipBuildOk returns a tuple with the SkipBuild field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Deployment) GetSkipBuildOk() (*bool, bool) {
+	if o == nil || isNil(o.SkipBuild) {
+    return nil, false
+	}
+	return o.SkipBuild, true
+}
+
+// HasSkipBuild returns a boolean if a field has been set.
+func (o *Deployment) HasSkipBuild() bool {
+	if o != nil && !isNil(o.SkipBuild) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipBuild gets a reference to the given bool and assigns it to the SkipBuild field.
+func (o *Deployment) SetSkipBuild(v bool) {
+	o.SkipBuild = &v
+}
+
+// GetRole returns the Role field value if set, zero value otherwise.
+func (o *Deployment) GetRole() DeploymentRole {
+	if o == nil || isNil(o.Role) {
+		var ret DeploymentRole
+		return ret
+	}
+	return *o.Role
+}
+
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Deployment) GetRoleOk() (*DeploymentRole, bool) {
+	if o == nil || isNil(o.Role) {
+    return nil, false
+	}
+	return o.Role, true
+}
+
+// HasRole returns a boolean if a field has been set.
+func (o *Deployment) HasRole() bool {
+	if o != nil && !isNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given DeploymentRole and assigns it to the Role field.
+func (o *Deployment) SetRole(v DeploymentRole) {
+	o.Role = &v
+}
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *Deployment) GetVersion() string {
 	if o == nil || isNil(o.Version) {
@@ -755,6 +825,12 @@ func (o Deployment) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DatabaseInfo) {
 		toSerialize["database_info"] = o.DatabaseInfo
+	}
+	if !isNil(o.SkipBuild) {
+		toSerialize["skip_build"] = o.SkipBuild
+	}
+	if !isNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	if !isNil(o.Version) {
 		toSerialize["version"] = o.Version
