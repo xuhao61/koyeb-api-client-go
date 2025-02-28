@@ -53,6 +53,8 @@ type APIClient struct {
 
 	AppsApi AppsApi
 
+	ArchivesApi ArchivesApi
+
 	BillingApi BillingApi
 
 	CatalogDatacentersApi CatalogDatacentersApi
@@ -65,9 +67,13 @@ type APIClient struct {
 
 	DeploymentsApi DeploymentsApi
 
+	DockerHelperApi DockerHelperApi
+
 	DomainsApi DomainsApi
 
 	InstancesApi InstancesApi
+
+	IntercomApi IntercomApi
 
 	InviteApi InviteApi
 
@@ -87,7 +93,11 @@ type APIClient struct {
 
 	PaymentMethodsApi PaymentMethodsApi
 
+	PersistentVolumesApi PersistentVolumesApi
+
 	ProfileApi ProfileApi
+
+	ProvisioningApi ProvisioningApi
 
 	QuotasApi QuotasApi
 
@@ -102,6 +112,8 @@ type APIClient struct {
 	ServicesApi ServicesApi
 
 	SessionsApi SessionsApi
+
+	SnapshotsApi SnapshotsApi
 
 	SsoApi SsoApi
 
@@ -132,14 +144,17 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.ActivityApi = (*ActivityApiService)(&c.common)
 	c.AppsApi = (*AppsApiService)(&c.common)
+	c.ArchivesApi = (*ArchivesApiService)(&c.common)
 	c.BillingApi = (*BillingApiService)(&c.common)
 	c.CatalogDatacentersApi = (*CatalogDatacentersApiService)(&c.common)
 	c.CatalogInstancesApi = (*CatalogInstancesApiService)(&c.common)
 	c.CatalogRegionsApi = (*CatalogRegionsApiService)(&c.common)
 	c.CredentialsApi = (*CredentialsApiService)(&c.common)
 	c.DeploymentsApi = (*DeploymentsApiService)(&c.common)
+	c.DockerHelperApi = (*DockerHelperApiService)(&c.common)
 	c.DomainsApi = (*DomainsApiService)(&c.common)
 	c.InstancesApi = (*InstancesApiService)(&c.common)
+	c.IntercomApi = (*IntercomApiService)(&c.common)
 	c.InviteApi = (*InviteApiService)(&c.common)
 	c.LogsApi = (*LogsApiService)(&c.common)
 	c.MetricsApi = (*MetricsApiService)(&c.common)
@@ -149,7 +164,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OrganizationMembersApi = (*OrganizationMembersApiService)(&c.common)
 	c.OrganizationQuotasApi = (*OrganizationQuotasApiService)(&c.common)
 	c.PaymentMethodsApi = (*PaymentMethodsApiService)(&c.common)
+	c.PersistentVolumesApi = (*PersistentVolumesApiService)(&c.common)
 	c.ProfileApi = (*ProfileApiService)(&c.common)
+	c.ProvisioningApi = (*ProvisioningApiService)(&c.common)
 	c.QuotasApi = (*QuotasApiService)(&c.common)
 	c.RegionalDeploymentsApi = (*RegionalDeploymentsApiService)(&c.common)
 	c.RepositoriesApi = (*RepositoriesApiService)(&c.common)
@@ -157,6 +174,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SecretsApi = (*SecretsApiService)(&c.common)
 	c.ServicesApi = (*ServicesApiService)(&c.common)
 	c.SessionsApi = (*SessionsApiService)(&c.common)
+	c.SnapshotsApi = (*SnapshotsApiService)(&c.common)
 	c.SsoApi = (*SsoApiService)(&c.common)
 	c.SubscriptionsApi = (*SubscriptionsApiService)(&c.common)
 	c.SummaryApi = (*SummaryApiService)(&c.common)

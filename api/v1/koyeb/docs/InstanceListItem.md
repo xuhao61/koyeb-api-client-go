@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **ServiceId** | Pointer to **string** |  | [optional] 
 **RegionalDeploymentId** | Pointer to **string** |  | [optional] 
 **AllocationId** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**ReplicaIndex** | Pointer to **int64** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **Datacenter** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to [**InstanceStatus**](InstanceStatus.md) |  | [optional] [default to INSTANCESTATUS_ALLOCATING]
@@ -236,6 +238,56 @@ SetAllocationId sets AllocationId field to given value.
 `func (o *InstanceListItem) HasAllocationId() bool`
 
 HasAllocationId returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *InstanceListItem) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *InstanceListItem) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *InstanceListItem) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *InstanceListItem) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetReplicaIndex
+
+`func (o *InstanceListItem) GetReplicaIndex() int64`
+
+GetReplicaIndex returns the ReplicaIndex field if non-nil, zero value otherwise.
+
+### GetReplicaIndexOk
+
+`func (o *InstanceListItem) GetReplicaIndexOk() (*int64, bool)`
+
+GetReplicaIndexOk returns a tuple with the ReplicaIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplicaIndex
+
+`func (o *InstanceListItem) SetReplicaIndex(v int64)`
+
+SetReplicaIndex sets ReplicaIndex field to given value.
+
+### HasReplicaIndex
+
+`func (o *InstanceListItem) HasReplicaIndex() bool`
+
+HasReplicaIndex returns a boolean if a field has been set.
 
 ### GetRegion
 

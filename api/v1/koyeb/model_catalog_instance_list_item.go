@@ -22,6 +22,7 @@ type CatalogInstanceListItem struct {
 	Vcpu *int64 `json:"vcpu,omitempty"`
 	Memory *string `json:"memory,omitempty"`
 	Disk *string `json:"disk,omitempty"`
+	PricePerSecond *string `json:"price_per_second,omitempty"`
 	PriceHourly *string `json:"price_hourly,omitempty"`
 	PriceMonthly *string `json:"price_monthly,omitempty"`
 	Regions []string `json:"regions,omitempty"`
@@ -30,6 +31,11 @@ type CatalogInstanceListItem struct {
 	// The number of vcpu shares reserved for the instance.
 	VcpuShares *float32 `json:"vcpu_shares,omitempty"`
 	DisplayName *string `json:"display_name,omitempty"`
+	Aliases []string `json:"aliases,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Gpu *CatalogGPUDetails `json:"gpu,omitempty"`
+	ServiceTypes []string `json:"service_types,omitempty"`
+	VolumesEnabled *bool `json:"volumes_enabled,omitempty"`
 }
 
 // NewCatalogInstanceListItem instantiates a new CatalogInstanceListItem object
@@ -207,6 +213,38 @@ func (o *CatalogInstanceListItem) HasDisk() bool {
 // SetDisk gets a reference to the given string and assigns it to the Disk field.
 func (o *CatalogInstanceListItem) SetDisk(v string) {
 	o.Disk = &v
+}
+
+// GetPricePerSecond returns the PricePerSecond field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetPricePerSecond() string {
+	if o == nil || isNil(o.PricePerSecond) {
+		var ret string
+		return ret
+	}
+	return *o.PricePerSecond
+}
+
+// GetPricePerSecondOk returns a tuple with the PricePerSecond field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetPricePerSecondOk() (*string, bool) {
+	if o == nil || isNil(o.PricePerSecond) {
+    return nil, false
+	}
+	return o.PricePerSecond, true
+}
+
+// HasPricePerSecond returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasPricePerSecond() bool {
+	if o != nil && !isNil(o.PricePerSecond) {
+		return true
+	}
+
+	return false
+}
+
+// SetPricePerSecond gets a reference to the given string and assigns it to the PricePerSecond field.
+func (o *CatalogInstanceListItem) SetPricePerSecond(v string) {
+	o.PricePerSecond = &v
 }
 
 // GetPriceHourly returns the PriceHourly field value if set, zero value otherwise.
@@ -433,6 +471,166 @@ func (o *CatalogInstanceListItem) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
+// GetAliases returns the Aliases field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetAliases() []string {
+	if o == nil || isNil(o.Aliases) {
+		var ret []string
+		return ret
+	}
+	return o.Aliases
+}
+
+// GetAliasesOk returns a tuple with the Aliases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetAliasesOk() ([]string, bool) {
+	if o == nil || isNil(o.Aliases) {
+    return nil, false
+	}
+	return o.Aliases, true
+}
+
+// HasAliases returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasAliases() bool {
+	if o != nil && !isNil(o.Aliases) {
+		return true
+	}
+
+	return false
+}
+
+// SetAliases gets a reference to the given []string and assigns it to the Aliases field.
+func (o *CatalogInstanceListItem) SetAliases(v []string) {
+	o.Aliases = v
+}
+
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetType() string {
+	if o == nil || isNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetTypeOk() (*string, bool) {
+	if o == nil || isNil(o.Type) {
+    return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasType() bool {
+	if o != nil && !isNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *CatalogInstanceListItem) SetType(v string) {
+	o.Type = &v
+}
+
+// GetGpu returns the Gpu field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetGpu() CatalogGPUDetails {
+	if o == nil || isNil(o.Gpu) {
+		var ret CatalogGPUDetails
+		return ret
+	}
+	return *o.Gpu
+}
+
+// GetGpuOk returns a tuple with the Gpu field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetGpuOk() (*CatalogGPUDetails, bool) {
+	if o == nil || isNil(o.Gpu) {
+    return nil, false
+	}
+	return o.Gpu, true
+}
+
+// HasGpu returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasGpu() bool {
+	if o != nil && !isNil(o.Gpu) {
+		return true
+	}
+
+	return false
+}
+
+// SetGpu gets a reference to the given CatalogGPUDetails and assigns it to the Gpu field.
+func (o *CatalogInstanceListItem) SetGpu(v CatalogGPUDetails) {
+	o.Gpu = &v
+}
+
+// GetServiceTypes returns the ServiceTypes field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetServiceTypes() []string {
+	if o == nil || isNil(o.ServiceTypes) {
+		var ret []string
+		return ret
+	}
+	return o.ServiceTypes
+}
+
+// GetServiceTypesOk returns a tuple with the ServiceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetServiceTypesOk() ([]string, bool) {
+	if o == nil || isNil(o.ServiceTypes) {
+    return nil, false
+	}
+	return o.ServiceTypes, true
+}
+
+// HasServiceTypes returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasServiceTypes() bool {
+	if o != nil && !isNil(o.ServiceTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceTypes gets a reference to the given []string and assigns it to the ServiceTypes field.
+func (o *CatalogInstanceListItem) SetServiceTypes(v []string) {
+	o.ServiceTypes = v
+}
+
+// GetVolumesEnabled returns the VolumesEnabled field value if set, zero value otherwise.
+func (o *CatalogInstanceListItem) GetVolumesEnabled() bool {
+	if o == nil || isNil(o.VolumesEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.VolumesEnabled
+}
+
+// GetVolumesEnabledOk returns a tuple with the VolumesEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogInstanceListItem) GetVolumesEnabledOk() (*bool, bool) {
+	if o == nil || isNil(o.VolumesEnabled) {
+    return nil, false
+	}
+	return o.VolumesEnabled, true
+}
+
+// HasVolumesEnabled returns a boolean if a field has been set.
+func (o *CatalogInstanceListItem) HasVolumesEnabled() bool {
+	if o != nil && !isNil(o.VolumesEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumesEnabled gets a reference to the given bool and assigns it to the VolumesEnabled field.
+func (o *CatalogInstanceListItem) SetVolumesEnabled(v bool) {
+	o.VolumesEnabled = &v
+}
+
 func (o CatalogInstanceListItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -449,6 +647,9 @@ func (o CatalogInstanceListItem) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Disk) {
 		toSerialize["disk"] = o.Disk
+	}
+	if !isNil(o.PricePerSecond) {
+		toSerialize["price_per_second"] = o.PricePerSecond
 	}
 	if !isNil(o.PriceHourly) {
 		toSerialize["price_hourly"] = o.PriceHourly
@@ -470,6 +671,21 @@ func (o CatalogInstanceListItem) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DisplayName) {
 		toSerialize["display_name"] = o.DisplayName
+	}
+	if !isNil(o.Aliases) {
+		toSerialize["aliases"] = o.Aliases
+	}
+	if !isNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !isNil(o.Gpu) {
+		toSerialize["gpu"] = o.Gpu
+	}
+	if !isNil(o.ServiceTypes) {
+		toSerialize["service_types"] = o.ServiceTypes
+	}
+	if !isNil(o.VolumesEnabled) {
+		toSerialize["volumes_enabled"] = o.VolumesEnabled
 	}
 	return json.Marshal(toSerialize)
 }
